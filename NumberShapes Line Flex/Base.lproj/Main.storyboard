@@ -1,25 +1,852 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6hQ-gU-lMt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Scene-->
+        <scene sceneID="qCy-S8-Ist">
+            <objects>
+                <viewController id="6hQ-gU-lMt" userLabel="Main Scene" customClass="LandingViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eiH-lW-895"/>
+                        <viewControllerLayoutGuide type="bottom" id="0A5-ML-6P6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HG8-bX-gzI" userLabel="Main Scene View">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUq-sD-SOS" customClass="circleButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="278" y="228" width="30" height="30"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XFt-oe-TEN" kind="show" id="zOB-14-1Vb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojo-24-eGx" customClass="circleButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="450" y="228" width="30" height="30"/>
+                                <connections>
+                                    <segue destination="ceF-qW-hhn" kind="show" id="9Ij-P1-zxK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UB4-ms-Tuj" customClass="circleButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="356" y="228" width="30" height="30"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="9ff-rx-pKT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYJ-hd-zaV" customClass="circleButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="230" y="365" width="30" height="30"/>
+                                <connections>
+                                    <segue destination="rzP-O1-Imr" kind="show" id="kvV-xK-d9f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-63-TjT" userLabel="Logo Button">
+                                <rect key="frame" x="30" y="103" width="540" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ea9-63-TjT" secondAttribute="height" multiplier="5:1" constant="5" id="6Lk-gc-d8F"/>
+                                    <constraint firstAttribute="width" constant="540" id="LCp-ku-1tS"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="NumberShapes Banner Logo.png"/>
+                                <connections>
+                                    <action selector="moreApps:" destination="6hQ-gU-lMt" eventType="touchUpInside" id="OhK-p5-HSP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nug-iW-uYC" customClass="circleButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="313" y="427" width="30" height="30"/>
+                                <connections>
+                                    <segue destination="cvp-85-a52" kind="show" id="QkF-Ko-wqO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk2-pG-iL3" customClass="circleButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="270" y="398" width="30" height="30"/>
+                                <connections>
+                                    <segue destination="BqY-q8-6GK" kind="show" id="5QR-Yc-kTy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ea9-63-TjT" firstAttribute="centerX" secondItem="HG8-bX-gzI" secondAttribute="centerX" id="oqp-KV-KPt"/>
+                            <constraint firstItem="ea9-63-TjT" firstAttribute="top" secondItem="eiH-lW-895" secondAttribute="bottom" constant="83" id="sbn-mI-fqL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LogoBtn" destination="ea9-63-TjT" id="cH0-55-yJe"/>
+                        <outlet property="ShowDecimalsBtn" destination="Ojo-24-eGx" id="xok-Hb-adF"/>
+                        <outlet property="ShowFractionsBtn" destination="EUq-sD-SOS" id="Od9-v3-xxi"/>
+                        <outlet property="ShowHundredsBtn" destination="nug-iW-uYC" id="QDF-ab-LD8"/>
+                        <outlet property="ShowIntegersBtn" destination="UB4-ms-Tuj" id="DZg-Ea-pTe"/>
+                        <outlet property="ShowMultiplicationBtn" destination="HYJ-hd-zaV" id="cjM-wb-6f2"/>
+                        <outlet property="ShowThousandsButton" destination="dk2-pG-iL3" id="RcN-cW-QNy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="euX-Uh-dw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-902" y="-1010"/>
+        </scene>
+        <!--Integers-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Integers" customClass="ViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Main View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKZ-a8-obS">
+                                <rect key="frame" x="25" y="359" width="550" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XKZ-a8-obS" secondAttribute="height" multiplier="5:1" id="reG-yU-U01"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-qq-e2V">
+                                <rect key="frame" x="23" y="477" width="554" height="31"/>
+                                <connections>
+                                    <action selector="SliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="jyy-nX-3lJ"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUc-hO-2zI" userLabel="+/-/=" customClass="operateOnceButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="512" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="NEI-Pp-fLA"/>
+                                    <constraint firstAttribute="width" secondItem="lUc-hO-2zI" secondAttribute="height" multiplier="1:1" id="yGp-vB-ozR"/>
+                                </constraints>
+                                <state key="normal" image="Plus_Minus.png"/>
+                                <connections>
+                                    <action selector="FirstOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hjg-56-V6E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnW-ez-FOz" userLabel="Home">
+                                <rect key="frame" x="20" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MnW-ez-FOz" secondAttribute="height" multiplier="1:1" id="f8l-Qi-CCB"/>
+                                    <constraint firstAttribute="height" constant="75" id="vHk-iO-tza"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Home.png"/>
+                                <connections>
+                                    <segue destination="6hQ-gU-lMt" kind="show" id="F68-QC-Obn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDi-NV-JL0" userLabel="+/-" customClass="operateTwiceButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="429" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tDi-NV-JL0" secondAttribute="height" multiplier="1:1" id="CBg-cT-y79"/>
+                                </constraints>
+                                <state key="normal" image="Plus_Minus.png"/>
+                                <connections>
+                                    <action selector="SecondOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VuY-w5-q2L"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM6-bd-W7p" customClass="descriptor" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="25" y="181" width="550" height="88"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaM-QF-6kk" customClass="shapebutton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="103" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EaM-QF-6kk" secondAttribute="height" multiplier="1:1" id="IHY-35-HWG"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ShowWithShapesButton.png"/>
+                                <connections>
+                                    <action selector="ShapeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPi-4e-kpW"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXK-zs-0jy" userLabel="ShapeDescriptor" customClass="shapeDescriptor" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="25" y="170" width="550" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HXK-zs-0jy" secondAttribute="height" multiplier="5:1" id="wez-oe-b93"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72k-1k-5yZ" userLabel="HelpButton">
+                                <rect key="frame" x="32" y="112" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="72k-1k-5yZ" secondAttribute="height" multiplier="1:1" id="7ok-ya-Hyj"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Question Mark.png"/>
+                                <connections>
+                                    <segue destination="8f0-ak-FBb" kind="show" id="rhq-Fd-dWa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHs-G7-ufk" userLabel="HideButton">
+                                <rect key="frame" x="520" y="138" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BHs-G7-ufk" secondAttribute="height" multiplier="1:1" id="X39-3X-d7k"/>
+                                </constraints>
+                                <state key="normal" image="HideButton.png"/>
+                                <connections>
+                                    <action selector="HideButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MYN-sa-Ki9"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="lUc-hO-2zI" secondAttribute="trailing" constant="-7" id="2tj-9O-LTg"/>
+                            <constraint firstItem="BHs-G7-ufk" firstAttribute="top" secondItem="lUc-hO-2zI" secondAttribute="bottom" constant="43" id="32Z-ml-8dC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XKZ-a8-obS" secondAttribute="bottom" constant="131" id="3lf-Im-ymB"/>
+                            <constraint firstItem="MnW-ez-FOz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="70r-9v-9Mh"/>
+                            <constraint firstItem="Nzz-qq-e2V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8b9-Nn-HtN"/>
+                            <constraint firstItem="EaM-QF-6kk" firstAttribute="height" secondItem="MnW-ez-FOz" secondAttribute="height" id="9Hb-Af-iHw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="MnW-ez-FOz" secondAttribute="leading" id="9ve-L4-tR6"/>
+                            <constraint firstItem="lUc-hO-2zI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BN8-SD-WB1"/>
+                            <constraint firstItem="HXK-zs-0jy" firstAttribute="centerY" secondItem="PM6-bd-W7p" secondAttribute="centerY" id="CYA-u7-EbM"/>
+                            <constraint firstItem="tDi-NV-JL0" firstAttribute="top" secondItem="lUc-hO-2zI" secondAttribute="bottom" constant="-75" id="GXZ-OG-1nF"/>
+                            <constraint firstItem="PM6-bd-W7p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IRd-Cd-aPh"/>
+                            <constraint firstItem="PM6-bd-W7p" firstAttribute="width" secondItem="XKZ-a8-obS" secondAttribute="width" id="JAj-tW-Ua9"/>
+                            <constraint firstItem="BHs-G7-ufk" firstAttribute="centerX" secondItem="lUc-hO-2zI" secondAttribute="centerX" id="R89-Po-Pdt"/>
+                            <constraint firstItem="HXK-zs-0jy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SME-0p-ZWQ"/>
+                            <constraint firstItem="BHs-G7-ufk" firstAttribute="width" secondItem="lUc-hO-2zI" secondAttribute="height" multiplier="2:3" constant="10" id="TeW-VO-oDK"/>
+                            <constraint firstItem="72k-1k-5yZ" firstAttribute="width" secondItem="MnW-ez-FOz" secondAttribute="height" multiplier="2:3" id="Zyz-ct-Yal"/>
+                            <constraint firstItem="EaM-QF-6kk" firstAttribute="leading" secondItem="MnW-ez-FOz" secondAttribute="trailing" constant="8" id="eWu-4a-RhS"/>
+                            <constraint firstItem="72k-1k-5yZ" firstAttribute="top" secondItem="MnW-ez-FOz" secondAttribute="bottom" constant="17" id="fQ5-PQ-0oo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XKZ-a8-obS" secondAttribute="trailing" constant="5" id="gbz-ri-uhK"/>
+                            <constraint firstItem="XKZ-a8-obS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="hzd-VG-sC0"/>
+                            <constraint firstItem="PM6-bd-W7p" firstAttribute="top" secondItem="MnW-ez-FOz" secondAttribute="bottom" constant="86" id="ipe-HV-d45"/>
+                            <constraint firstItem="lUc-hO-2zI" firstAttribute="leading" secondItem="tDi-NV-JL0" secondAttribute="trailing" constant="8" id="mNZ-kn-Ukd"/>
+                            <constraint firstItem="Nzz-qq-e2V" firstAttribute="top" secondItem="XKZ-a8-obS" secondAttribute="bottom" constant="8" id="o0f-ny-jL9"/>
+                            <constraint firstItem="EaM-QF-6kk" firstAttribute="centerY" secondItem="MnW-ez-FOz" secondAttribute="centerY" id="omm-hB-zoF"/>
+                            <constraint firstItem="Nzz-qq-e2V" firstAttribute="width" secondItem="XKZ-a8-obS" secondAttribute="width" id="otx-rf-nbJ"/>
+                            <constraint firstItem="72k-1k-5yZ" firstAttribute="centerX" secondItem="MnW-ez-FOz" secondAttribute="centerX" id="sdi-RM-qqW"/>
+                            <constraint firstItem="tDi-NV-JL0" firstAttribute="width" secondItem="lUc-hO-2zI" secondAttribute="width" id="to4-Uz-RWV"/>
+                            <constraint firstItem="XKZ-a8-obS" firstAttribute="top" secondItem="PM6-bd-W7p" secondAttribute="bottom" constant="90" id="umB-wW-blH"/>
+                            <constraint firstItem="HXK-zs-0jy" firstAttribute="width" secondItem="PM6-bd-W7p" secondAttribute="width" id="v44-Ub-HNg"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GkK-Hp-cQI" appends="YES" id="74d-FN-XOY"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="Descriptor" destination="PM6-bd-W7p" id="s5k-Vy-nwI"/>
+                        <outlet property="FirstOperator" destination="lUc-hO-2zI" id="ysx-uj-bEk"/>
+                        <outlet property="HideButton" destination="BHs-G7-ufk" id="zXX-gu-G3l"/>
+                        <outlet property="NumberLineView" destination="XKZ-a8-obS" id="AAe-M1-2c1"/>
+                        <outlet property="Pincher" destination="GkK-Hp-cQI" id="PqU-J7-EQx"/>
+                        <outlet property="SecondOperator" destination="tDi-NV-JL0" id="sBM-Wb-ESC"/>
+                        <outlet property="ShapeButton" destination="EaM-QF-6kk" id="bzN-EN-sFd"/>
+                        <outlet property="ShapeDescriptor" destination="HXK-zs-0jy" id="Pwf-Ek-Px4"/>
+                        <outlet property="SliderButton" destination="Nzz-qq-e2V" id="Aej-Bw-oeU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="GkK-Hp-cQI" customClass="pincher" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                    <connections>
+                        <action selector="adjustProgress:" destination="BYZ-38-t0r" id="3wQ-g0-xYk"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-766" y="10"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="agN-WL-B5T">
+            <objects>
+                <viewController id="8f0-ak-FBb" userLabel="Help" customClass="HelpViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8XU-Ju-GnG"/>
+                        <viewControllerLayoutGuide type="bottom" id="RwW-0e-ray"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A0P-Gx-p8i">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instructional Scene for Flex Line.png" translatesAutoresizingMaskIntoConstraints="NO" id="eCU-HM-0Vp" userLabel="Whiteboard Inst">
+                                <rect key="frame" x="50" y="79" width="500" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eCU-HM-0Vp" secondAttribute="height" multiplier="1:1" id="TlK-Ss-mo5"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAR-bu-DYl" userLabel="&lt;-Back To Integers">
+                                <rect key="frame" x="0.0" y="15" width="79" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fAR-bu-DYl" secondAttribute="height" multiplier="79:71" id="P1n-C9-Nku"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="70"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="hA7-Oj-Pxx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fAR-bu-DYl" firstAttribute="leading" secondItem="A0P-Gx-p8i" secondAttribute="leadingMargin" constant="-20" id="7Sq-gT-ZZk"/>
+                            <constraint firstItem="fAR-bu-DYl" firstAttribute="top" secondItem="8XU-Ju-GnG" secondAttribute="bottom" constant="-5" id="MkL-gE-CtG"/>
+                            <constraint firstItem="fAR-bu-DYl" firstAttribute="width" secondItem="A0P-Gx-p8i" secondAttribute="height" multiplier="79:600" id="P9n-hz-hjh"/>
+                            <constraint firstItem="eCU-HM-0Vp" firstAttribute="width" secondItem="A0P-Gx-p8i" secondAttribute="height" multiplier="5:6" id="hdf-mN-Vgb"/>
+                            <constraint firstItem="RwW-0e-ray" firstAttribute="top" secondItem="eCU-HM-0Vp" secondAttribute="bottom" constant="21" id="vNn-ii-1yy"/>
+                            <constraint firstItem="eCU-HM-0Vp" firstAttribute="centerX" secondItem="A0P-Gx-p8i" secondAttribute="centerX" id="zce-jO-et9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="HelpScene" destination="eCU-HM-0Vp" id="CIj-Yh-IFo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6W-XV-Vp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-397" y="257"/>
+        </scene>
+        <!--Fractions-->
+        <scene sceneID="Al1-c3-jUA">
+            <objects>
+                <viewController id="XFt-oe-TEN" userLabel="Fractions" customClass="FractionsViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eHn-zc-KNQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fPE-hx-ee8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xDw-r1-XWq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwJ-vd-Eio" userLabel="Home">
+                                <rect key="frame" x="10" y="11" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="C99-gf-j93"/>
+                                    <constraint firstAttribute="width" secondItem="FwJ-vd-Eio" secondAttribute="height" multiplier="1:1" id="UHN-eR-hyW"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Home.png"/>
+                                <connections>
+                                    <segue destination="6hQ-gU-lMt" kind="show" id="tIl-n4-pE9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51b-yN-80n" userLabel="Question">
+                                <rect key="frame" x="22" y="105" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="51b-yN-80n" secondAttribute="height" multiplier="1:1" id="ljf-hg-RD1"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Transparent Question Mark.png"/>
+                                <connections>
+                                    <action selector="help:" destination="XFt-oe-TEN" eventType="touchUpInside" id="z9z-pl-zQG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" restorationIdentifier="Orange" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sML-aN-8Af" userLabel="Cookie">
+                                <rect key="frame" x="22" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sML-aN-8Af" secondAttribute="height" multiplier="1:1" id="LEH-F8-9cs"/>
+                                </constraints>
+                                <state key="normal" image="Orange.png"/>
+                                <connections>
+                                    <action selector="switchwhattocut:" destination="XFt-oe-TEN" eventType="touchUpInside" id="ZOJ-Ul-ZNd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" restorationIdentifier="Sphere" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4Q-eU-hpY" userLabel="Sphere">
+                                <rect key="frame" x="22" y="194" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S4Q-eU-hpY" secondAttribute="height" multiplier="1:1" id="dJj-FQ-30S"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="BlueBall.png"/>
+                                <connections>
+                                    <action selector="switchwhattocut:" destination="XFt-oe-TEN" eventType="touchUpInside" id="buO-dO-TiT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Flower" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkD-6s-JJS" userLabel="Flower">
+                                <rect key="frame" x="22" y="352" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZkD-6s-JJS" secondAttribute="height" multiplier="1:1" id="1nq-TU-uOa"/>
+                                </constraints>
+                                <state key="normal" image="Flower.png"/>
+                                <connections>
+                                    <action selector="switchwhattocut:" destination="XFt-oe-TEN" eventType="touchUpInside" id="xlA-tO-KIL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Record" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ce-Lc-Xql">
+                                <rect key="frame" x="22" y="434" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0ce-Lc-Xql" secondAttribute="height" multiplier="1:1" id="5Wn-o1-lw0"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Record.png"/>
+                                <connections>
+                                    <action selector="switchwhattocut:" destination="XFt-oe-TEN" eventType="touchUpInside" id="LTR-4X-XoV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="sML-aN-8Af" firstAttribute="top" secondItem="S4Q-eU-hpY" secondAttribute="bottom" constant="31" id="3qy-jr-CCS"/>
+                            <constraint firstItem="sML-aN-8Af" firstAttribute="centerX" secondItem="S4Q-eU-hpY" secondAttribute="centerX" id="4Hx-Lb-KUW"/>
+                            <constraint firstItem="ZkD-6s-JJS" firstAttribute="centerX" secondItem="sML-aN-8Af" secondAttribute="centerX" id="69R-UN-yCU"/>
+                            <constraint firstItem="0ce-Lc-Xql" firstAttribute="centerX" secondItem="ZkD-6s-JJS" secondAttribute="centerX" id="7bQ-zC-qUH"/>
+                            <constraint firstItem="0ce-Lc-Xql" firstAttribute="top" secondItem="ZkD-6s-JJS" secondAttribute="bottom" constant="32" id="GJR-Kf-76Q"/>
+                            <constraint firstItem="sML-aN-8Af" firstAttribute="width" secondItem="xDw-r1-XWq" secondAttribute="height" multiplier="1:12" id="LnG-Ot-zNl"/>
+                            <constraint firstItem="FwJ-vd-Eio" firstAttribute="top" secondItem="eHn-zc-KNQ" secondAttribute="bottom" constant="-9" id="MwP-yl-YQD"/>
+                            <constraint firstItem="51b-yN-80n" firstAttribute="width" secondItem="xDw-r1-XWq" secondAttribute="height" multiplier="1:12" id="OiR-qJ-T1I"/>
+                            <constraint firstItem="S4Q-eU-hpY" firstAttribute="top" secondItem="51b-yN-80n" secondAttribute="bottom" constant="39" id="Prf-Ka-9CN"/>
+                            <constraint firstItem="51b-yN-80n" firstAttribute="top" secondItem="FwJ-vd-Eio" secondAttribute="bottom" constant="19" id="ZQG-hp-hym"/>
+                            <constraint firstItem="FwJ-vd-Eio" firstAttribute="leading" secondItem="xDw-r1-XWq" secondAttribute="leadingMargin" constant="-10" id="cim-qz-TPa"/>
+                            <constraint firstItem="51b-yN-80n" firstAttribute="centerX" secondItem="FwJ-vd-Eio" secondAttribute="centerX" id="ecP-mQ-ynA"/>
+                            <constraint firstItem="ZkD-6s-JJS" firstAttribute="top" secondItem="sML-aN-8Af" secondAttribute="bottom" constant="27" id="evl-po-wIC"/>
+                            <constraint firstItem="ZkD-6s-JJS" firstAttribute="width" secondItem="xDw-r1-XWq" secondAttribute="height" multiplier="1:12" id="jCP-YP-fRf"/>
+                            <constraint firstItem="S4Q-eU-hpY" firstAttribute="width" secondItem="xDw-r1-XWq" secondAttribute="height" multiplier="1:12" id="uwM-9U-itz"/>
+                            <constraint firstItem="0ce-Lc-Xql" firstAttribute="width" secondItem="xDw-r1-XWq" secondAttribute="height" multiplier="1:12" id="x7D-nS-MFv"/>
+                            <constraint firstItem="S4Q-eU-hpY" firstAttribute="centerX" secondItem="51b-yN-80n" secondAttribute="centerX" id="z3J-c4-2a3"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="iRY-5E-5Dg" appends="YES" id="51w-DA-8eB"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YiJ-4Q-1kc" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="iRY-5E-5Dg">
+                    <connections>
+                        <action selector="reduce:" destination="XFt-oe-TEN" id="VRa-Wk-aQb"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="353" y="74"/>
+        </scene>
+        <!--Hundreds-->
+        <scene sceneID="JeM-0a-tFI">
+            <objects>
+                <viewController storyboardIdentifier="Hundreds Scene" id="BqY-q8-6GK" userLabel="Hundreds" customClass="HundredsViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dgr-i1-vWZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="0zO-El-2Av"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W0E-Mt-ZqP" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffS-fR-fvR" userLabel="Home">
+                                <rect key="frame" x="20" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ffS-fR-fvR" secondAttribute="height" multiplier="1:1" id="YjZ-zi-iYb"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Home.png"/>
+                                <connections>
+                                    <segue destination="6hQ-gU-lMt" kind="show" id="p4U-hB-tce"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-j0-f38">
+                                <rect key="frame" x="500" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DNC-j0-f38" secondAttribute="height" multiplier="1:1" id="dE1-13-Tca"/>
+                                </constraints>
+                                <state key="normal" image="Plus_Minus.png"/>
+                                <connections>
+                                    <action selector="operatorclicked:" destination="BqY-q8-6GK" eventType="touchUpInside" id="xF6-Ae-jgL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isn-l5-ymq" userLabel="Help Button">
+                                <rect key="frame" x="32" y="108" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="isn-l5-ymq" secondAttribute="height" multiplier="1:1" id="fOa-qW-3oZ"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Question Mark.png"/>
+                                <connections>
+                                    <action selector="helpme:" destination="BqY-q8-6GK" eventType="touchUpInside" id="yz7-BJ-0ks"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-mC-ZBF">
+                                <rect key="frame" x="507" y="124" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mZq-mC-ZBF" secondAttribute="height" multiplier="1:1" id="zOb-R1-Cl4"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="HideButton.png"/>
+                                <connections>
+                                    <action selector="approximater:" destination="BqY-q8-6GK" eventType="touchUpInside" id="oqu-Fn-z4J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="isn-l5-ymq" firstAttribute="width" secondItem="W0E-Mt-ZqP" secondAttribute="height" multiplier="1:12" id="0p9-S0-Em2"/>
+                            <constraint firstItem="ffS-fR-fvR" firstAttribute="top" secondItem="dgr-i1-vWZ" secondAttribute="bottom" id="Bgj-Y9-XuY"/>
+                            <constraint firstItem="mZq-mC-ZBF" firstAttribute="width" secondItem="W0E-Mt-ZqP" secondAttribute="height" multiplier="1:10" id="Ga6-b5-U8l"/>
+                            <constraint firstItem="mZq-mC-ZBF" firstAttribute="top" secondItem="DNC-j0-f38" secondAttribute="bottom" constant="29" id="U93-Jj-BtR"/>
+                            <constraint firstItem="DNC-j0-f38" firstAttribute="width" secondItem="W0E-Mt-ZqP" secondAttribute="height" multiplier="1:8" id="bLJ-MB-RNp"/>
+                            <constraint firstItem="DNC-j0-f38" firstAttribute="top" secondItem="dgr-i1-vWZ" secondAttribute="bottom" id="emw-bk-kPH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DNC-j0-f38" secondAttribute="trailing" constant="5" id="iyn-aq-yMF"/>
+                            <constraint firstItem="isn-l5-ymq" firstAttribute="centerX" secondItem="ffS-fR-fvR" secondAttribute="centerX" id="ufs-4a-Az3"/>
+                            <constraint firstItem="ffS-fR-fvR" firstAttribute="width" secondItem="W0E-Mt-ZqP" secondAttribute="height" multiplier="1:8" id="unH-EU-ZJr"/>
+                            <constraint firstItem="mZq-mC-ZBF" firstAttribute="centerX" secondItem="DNC-j0-f38" secondAttribute="centerX" id="vNT-A7-L9Y"/>
+                            <constraint firstItem="isn-l5-ymq" firstAttribute="top" secondItem="ffS-fR-fvR" secondAttribute="bottom" constant="13" id="x1R-4a-b4J"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ffS-fR-fvR" secondAttribute="leading" id="yS5-KB-DpY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Pincher" destination="GkK-Hp-cQI" id="YfX-Yf-15B"/>
+                        <outlet property="approximatorbutton" destination="mZq-mC-ZBF" id="Ehf-aU-1kV"/>
+                        <outlet property="operatorbutton" destination="DNC-j0-f38" id="ACj-PX-HxY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzf-DZ-HQA" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-289" y="-685"/>
+        </scene>
+        <!--Multiplication View Controller-->
+        <scene sceneID="Wvs-Sj-Dc8">
+            <objects>
+                <viewController id="rzP-O1-Imr" customClass="MultiplicationViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DVO-CL-GDX"/>
+                        <viewControllerLayoutGuide type="bottom" id="A0f-CO-YJd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YKf-Qw-loI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-OB-KeL">
+                                <rect key="frame" x="401" y="45" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1T9-OB-KeL" secondAttribute="height" multiplier="1:1" id="v21-rc-yO5"/>
+                                </constraints>
+                                <state key="normal" image="Plus_Minus.png"/>
+                                <connections>
+                                    <action selector="horizontaloperatorclicked:" destination="rzP-O1-Imr" eventType="touchUpInside" id="kMv-zf-LWB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6A-pa-ukb" userLabel="Proportions">
+                                <rect key="frame" x="485" y="128" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="w6A-pa-ukb" secondAttribute="height" multiplier="1:1" id="HLg-IZ-GNF"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Glass Circle.png"/>
+                                <connections>
+                                    <action selector="proportionbuttonclicked:" destination="rzP-O1-Imr" eventType="touchUpInside" id="dhE-6h-eNz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-6J-jv9">
+                                <rect key="frame" x="485" y="128" width="75" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Fyl-GK-8hR"/>
+                                    <constraint firstAttribute="width" secondItem="ijB-6J-jv9" secondAttribute="height" multiplier="5:4" id="Gci-Ws-reb"/>
+                                    <constraint firstAttribute="width" constant="75" id="ImG-mB-zOb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bB6-fe-4GQ" userLabel="Multiplication">
+                                <rect key="frame" x="485" y="45" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Mbp-3v-OCD"/>
+                                    <constraint firstAttribute="width" secondItem="bB6-fe-4GQ" secondAttribute="height" multiplier="1:1" id="cOo-Ef-cxO"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Transparent Glass Circle.png"/>
+                                <connections>
+                                    <action selector="multiplicationbuttonclicked:" destination="rzP-O1-Imr" eventType="touchUpInside" id="qKq-vY-jXw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1G-5I-7El">
+                                <rect key="frame" x="506" y="56" width="33" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Qev-Kw-PbZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kw-9c-yFW" userLabel="Equals">
+                                <rect key="frame" x="485" y="45" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9kw-9c-yFW" secondAttribute="height" multiplier="1:1" id="V7u-Yc-NdE"/>
+                                </constraints>
+                                <state key="normal" image="=.png"/>
+                                <connections>
+                                    <action selector="equalsbuttonclicked:" destination="rzP-O1-Imr" eventType="touchUpInside" id="ILF-EB-zHI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqM-u8-DMu" userLabel="Home">
+                                <rect key="frame" x="29" y="29" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="7eW-dM-Dyx"/>
+                                    <constraint firstAttribute="width" secondItem="pqM-u8-DMu" secondAttribute="height" multiplier="1:1" id="7py-K2-TrJ"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Home.png"/>
+                                <connections>
+                                    <segue destination="6hQ-gU-lMt" kind="show" id="hKF-yu-cUF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxB-gi-MKF">
+                                <rect key="frame" x="41" y="133" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dxB-gi-MKF" secondAttribute="height" multiplier="1:1" id="kZs-qx-o8V"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Question Mark.png"/>
+                                <connections>
+                                    <action selector="helpbuttonclicked:" destination="rzP-O1-Imr" eventType="touchUpInside" id="qhK-Rq-d6z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQ9-Oe-T3S">
+                                <rect key="frame" x="29" y="234" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pQ9-Oe-T3S" secondAttribute="height" multiplier="9:10" constant="7.5" id="Z2D-g7-GN7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                <state key="normal" title="Blocks" image="BlockNBallButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="blockorballbuttonclicked:" destination="rzP-O1-Imr" eventType="touchUpInside" id="A4b-m0-MMb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="w6A-pa-ukb" firstAttribute="centerX" secondItem="bB6-fe-4GQ" secondAttribute="centerX" id="6d8-BW-4AV"/>
+                            <constraint firstItem="pQ9-Oe-T3S" firstAttribute="centerX" secondItem="dxB-gi-MKF" secondAttribute="centerX" constant="0.5" id="8Z6-j3-NrT"/>
+                            <constraint firstItem="1T9-OB-KeL" firstAttribute="width" secondItem="bB6-fe-4GQ" secondAttribute="width" id="D8U-JZ-4Nh"/>
+                            <constraint firstItem="ijB-6J-jv9" firstAttribute="centerX" secondItem="w6A-pa-ukb" secondAttribute="centerX" id="Ghk-OM-shH"/>
+                            <constraint firstItem="w6A-pa-ukb" firstAttribute="top" secondItem="bB6-fe-4GQ" secondAttribute="bottom" constant="8" id="GoF-T3-BXV"/>
+                            <constraint firstItem="pQ9-Oe-T3S" firstAttribute="width" secondItem="dxB-gi-MKF" secondAttribute="height" multiplier="27:25" constant="21" id="IZI-4A-4bb"/>
+                            <constraint firstItem="bB6-fe-4GQ" firstAttribute="top" secondItem="S1G-5I-7El" secondAttribute="bottom" constant="-59" id="JHn-XA-ueD"/>
+                            <constraint firstItem="9kw-9c-yFW" firstAttribute="centerY" secondItem="bB6-fe-4GQ" secondAttribute="centerY" id="KOh-0L-gCp"/>
+                            <constraint firstItem="9kw-9c-yFW" firstAttribute="width" secondItem="bB6-fe-4GQ" secondAttribute="width" id="L5X-hf-Y1S"/>
+                            <constraint firstItem="bB6-fe-4GQ" firstAttribute="top" secondItem="DVO-CL-GDX" secondAttribute="bottom" constant="25" id="Ue4-LK-qs6"/>
+                            <constraint firstItem="pqM-u8-DMu" firstAttribute="top" secondItem="DVO-CL-GDX" secondAttribute="bottom" constant="9" id="ZJ0-vF-lyP"/>
+                            <constraint firstItem="pqM-u8-DMu" firstAttribute="leading" secondItem="YKf-Qw-loI" secondAttribute="leadingMargin" constant="9" id="c2r-BI-Kxa"/>
+                            <constraint firstItem="bB6-fe-4GQ" firstAttribute="leading" secondItem="1T9-OB-KeL" secondAttribute="trailing" constant="9" id="cOL-co-xB0"/>
+                            <constraint firstItem="dxB-gi-MKF" firstAttribute="top" secondItem="pqM-u8-DMu" secondAttribute="bottom" constant="29" id="cjS-Ib-d9a"/>
+                            <constraint firstItem="bB6-fe-4GQ" firstAttribute="centerY" secondItem="1T9-OB-KeL" secondAttribute="centerY" id="dWF-qc-f4a"/>
+                            <constraint firstItem="pQ9-Oe-T3S" firstAttribute="top" secondItem="dxB-gi-MKF" secondAttribute="bottom" constant="51" id="jEU-Ca-f5f"/>
+                            <constraint firstItem="w6A-pa-ukb" firstAttribute="top" secondItem="ijB-6J-jv9" secondAttribute="bottom" constant="-60" id="jvN-Kt-kap"/>
+                            <constraint firstItem="9kw-9c-yFW" firstAttribute="centerX" secondItem="bB6-fe-4GQ" secondAttribute="centerX" id="k4h-w1-XdE"/>
+                            <constraint firstItem="dxB-gi-MKF" firstAttribute="centerX" secondItem="pqM-u8-DMu" secondAttribute="centerX" constant="-0.5" id="nwh-Ru-fIs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bB6-fe-4GQ" secondAttribute="trailing" constant="20" id="pd0-Ts-mVo"/>
+                            <constraint firstItem="w6A-pa-ukb" firstAttribute="width" secondItem="bB6-fe-4GQ" secondAttribute="width" id="qEd-F3-egQ"/>
+                            <constraint firstItem="S1G-5I-7El" firstAttribute="centerX" secondItem="bB6-fe-4GQ" secondAttribute="centerX" id="qRS-hO-4Qt"/>
+                            <constraint firstItem="dxB-gi-MKF" firstAttribute="width" secondItem="pqM-u8-DMu" secondAttribute="height" multiplier="2:3" id="wLf-0c-3oW"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yZ5-AO-XR3" appends="YES" id="5fu-pc-6cJ"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="ProportionBtn" destination="w6A-pa-ukb" id="VUB-Gn-J8q"/>
+                        <outlet property="equalsbtn" destination="9kw-9c-yFW" id="hC2-XB-1tl"/>
+                        <outlet property="helpbutton" destination="dxB-gi-MKF" id="yW5-XZ-wpv"/>
+                        <outlet property="multiplicationbtn" destination="bB6-fe-4GQ" id="hpR-tU-QXw"/>
+                        <outlet property="multlbl" destination="S1G-5I-7El" id="v4I-vB-ylS"/>
+                        <outlet property="operatorbutton" destination="1T9-OB-KeL" id="WUz-HM-iKg"/>
+                        <outlet property="propLbl" destination="ijB-6J-jv9" id="6cG-S6-Tk5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtz-bs-J9x" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="yZ5-AO-XR3" customClass="pinchhandler" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                    <connections>
+                        <action selector="HandlePinch:" destination="rzP-O1-Imr" id="tXx-b4-IZf"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="776" y="-698"/>
+        </scene>
+        <!--Percents View Controller-->
+        <scene sceneID="kcu-iq-YWC">
+            <objects>
+                <viewController storyboardIdentifier="PercentsViewController" id="cvp-85-a52" customClass="PercentsViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="egS-OW-wi8"/>
+                        <viewControllerLayoutGuide type="bottom" id="a1k-LV-X8B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WjK-sj-xkU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fol-Jz-2NM" userLabel="Home">
+                                <rect key="frame" x="32" y="28" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fol-Jz-2NM" secondAttribute="height" multiplier="1:1" id="931-Wc-7az"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Home.png"/>
+                                <connections>
+                                    <segue destination="6hQ-gU-lMt" kind="show" id="BkL-5s-uiS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEm-Va-b81">
+                                <rect key="frame" x="499" y="28" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zEm-Va-b81" secondAttribute="height" multiplier="1:1" id="NnY-Vj-ic4"/>
+                                </constraints>
+                                <state key="normal" image="Reset.png"/>
+                                <connections>
+                                    <action selector="reset:" destination="cvp-85-a52" eventType="touchUpInside" id="cHL-Au-mwh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPe-kf-PqJ">
+                                <rect key="frame" x="44" y="111" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hPe-kf-PqJ" secondAttribute="height" multiplier="1:1" id="2Xv-nc-J6b"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Question Mark.png"/>
+                                <connections>
+                                    <action selector="helpme:" destination="cvp-85-a52" eventType="touchUpInside" id="UA5-uf-okL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hPe-kf-PqJ" firstAttribute="width" secondItem="WjK-sj-xkU" secondAttribute="height" multiplier="1:12" id="1P6-0o-Mdy"/>
+                            <constraint firstItem="hPe-kf-PqJ" firstAttribute="centerX" secondItem="Fol-Jz-2NM" secondAttribute="centerX" id="3GQ-xQ-ZXH"/>
+                            <constraint firstItem="Fol-Jz-2NM" firstAttribute="width" secondItem="WjK-sj-xkU" secondAttribute="height" multiplier="1:8" id="6wy-Ln-9Ru"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zEm-Va-b81" secondAttribute="trailing" constant="6" id="9Fl-gU-5Qo"/>
+                            <constraint firstItem="hPe-kf-PqJ" firstAttribute="top" secondItem="Fol-Jz-2NM" secondAttribute="bottom" constant="8" id="BYn-ia-vem"/>
+                            <constraint firstItem="zEm-Va-b81" firstAttribute="width" secondItem="WjK-sj-xkU" secondAttribute="height" multiplier="1:8" id="aKB-KP-IIG"/>
+                            <constraint firstItem="Fol-Jz-2NM" firstAttribute="leading" secondItem="WjK-sj-xkU" secondAttribute="leadingMargin" constant="12" id="eo3-dq-e5D"/>
+                            <constraint firstItem="Fol-Jz-2NM" firstAttribute="top" secondItem="egS-OW-wi8" secondAttribute="bottom" constant="8" id="sKm-4A-bM0"/>
+                            <constraint firstItem="zEm-Va-b81" firstAttribute="top" secondItem="egS-OW-wi8" secondAttribute="bottom" constant="8" id="tmh-yR-4Fm"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zBC-SA-7Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1663" y="67"/>
+        </scene>
+        <!--Decimals-->
+        <scene sceneID="ulx-lD-d9O">
+            <objects>
+                <viewController id="ceF-qW-hhn" userLabel="Decimals" customClass="DecimalViewController" customModule="NumberShapes_Whiteboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VIq-QH-3hG"/>
+                        <viewControllerLayoutGuide type="bottom" id="eRd-1d-JTI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hn8-C8-PBp" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jt-Pn-ftJ">
+                                <rect key="frame" x="25" y="359" width="550" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9Jt-Pn-ftJ" secondAttribute="height" multiplier="5:1" id="7Z8-fl-4Fz"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="maH-n1-DF3">
+                                <rect key="frame" x="23" y="477" width="554" height="31"/>
+                                <connections>
+                                    <action selector="SliderValueChanged:" destination="ceF-qW-hhn" eventType="valueChanged" id="Rg1-FA-PqU"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVQ-PB-rWk" userLabel="Home">
+                                <rect key="frame" x="20" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eVQ-PB-rWk" secondAttribute="height" multiplier="1:1" id="dSe-H0-YKM"/>
+                                </constraints>
+                                <state key="normal" image="Transparent Home.png"/>
+                                <connections>
+                                    <segue destination="6hQ-gU-lMt" kind="show" id="kge-a6-uuD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGE-cG-MqR">
+                                <rect key="frame" x="500" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eGE-cG-MqR" secondAttribute="height" multiplier="1:1" id="X5a-dB-6n3"/>
+                                </constraints>
+                                <state key="normal" image="Plus_Minus.png"/>
+                                <connections>
+                                    <action selector="operatorclicked:" destination="ceF-qW-hhn" eventType="touchUpInside" id="aPa-4O-FWi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFi-2L-Wid">
+                                <rect key="frame" x="32" y="111" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tFi-2L-Wid" secondAttribute="height" multiplier="1:1" id="Bix-Am-JSr"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Transparent Question Mark.png"/>
+                                <connections>
+                                    <action selector="help:" destination="ceF-qW-hhn" eventType="touchUpInside" id="57V-Og-EKB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3F-cQ-dA4">
+                                <rect key="frame" x="423" y="33" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="X3F-cQ-dA4" secondAttribute="height" multiplier="1:1" id="fW1-NC-pEK"/>
+                                </constraints>
+                                <state key="normal" image="HideButton.png"/>
+                                <connections>
+                                    <action selector="hide:" destination="ceF-qW-hhn" eventType="touchUpInside" id="eDt-5U-2el"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWS-sW-dvh" customClass="descriptor" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                                <rect key="frame" x="25" y="169" width="550" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="tH9-wq-GUE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="MWS-sW-dvh" firstAttribute="leading" secondItem="Hn8-C8-PBp" secondAttribute="leadingMargin" constant="5" id="8g7-Ap-7Xk"/>
+                            <constraint firstItem="eGE-cG-MqR" firstAttribute="leading" secondItem="X3F-cQ-dA4" secondAttribute="trailing" constant="27" id="9u9-7S-pLL"/>
+                            <constraint firstItem="9Jt-Pn-ftJ" firstAttribute="leading" secondItem="Hn8-C8-PBp" secondAttribute="leadingMargin" constant="5" id="9wt-qZ-gc2"/>
+                            <constraint firstItem="eGE-cG-MqR" firstAttribute="width" secondItem="Hn8-C8-PBp" secondAttribute="height" multiplier="1:8" id="HOm-50-p0N"/>
+                            <constraint firstItem="eRd-1d-JTI" firstAttribute="top" secondItem="9Jt-Pn-ftJ" secondAttribute="bottom" constant="131" id="IIf-V7-n6i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MWS-sW-dvh" secondAttribute="trailing" constant="5" id="JHm-AX-ynn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eGE-cG-MqR" secondAttribute="trailing" constant="5" id="M6Z-vH-ZxL"/>
+                            <constraint firstItem="maH-n1-DF3" firstAttribute="width" secondItem="9Jt-Pn-ftJ" secondAttribute="width" id="P2K-mc-HgU"/>
+                            <constraint firstItem="MWS-sW-dvh" firstAttribute="centerX" secondItem="Hn8-C8-PBp" secondAttribute="centerX" id="TtY-8k-8OU"/>
+                            <constraint firstItem="eGE-cG-MqR" firstAttribute="top" secondItem="VIq-QH-3hG" secondAttribute="bottom" id="Ynb-FB-IEV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Jt-Pn-ftJ" secondAttribute="trailing" constant="5" id="Zdq-li-vRY"/>
+                            <constraint firstItem="eVQ-PB-rWk" firstAttribute="top" secondItem="VIq-QH-3hG" secondAttribute="bottom" id="Zns-bb-TJ5"/>
+                            <constraint firstItem="maH-n1-DF3" firstAttribute="centerX" secondItem="Hn8-C8-PBp" secondAttribute="centerX" id="dBe-zj-06A"/>
+                            <constraint firstItem="eGE-cG-MqR" firstAttribute="centerY" secondItem="X3F-cQ-dA4" secondAttribute="centerY" id="dg6-Qk-tIj"/>
+                            <constraint firstItem="X3F-cQ-dA4" firstAttribute="width" secondItem="Hn8-C8-PBp" secondAttribute="height" multiplier="1:12" id="eRZ-Oj-r9T"/>
+                            <constraint firstItem="maH-n1-DF3" firstAttribute="top" secondItem="9Jt-Pn-ftJ" secondAttribute="bottom" constant="8" id="hLc-n3-go9"/>
+                            <constraint firstItem="eVQ-PB-rWk" firstAttribute="width" secondItem="Hn8-C8-PBp" secondAttribute="height" multiplier="1:8" id="i8p-IN-3II"/>
+                            <constraint firstItem="tFi-2L-Wid" firstAttribute="width" secondItem="Hn8-C8-PBp" secondAttribute="height" multiplier="1:12" id="u8E-KI-qow"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="eVQ-PB-rWk" secondAttribute="leading" id="vf8-Xr-T1v"/>
+                            <constraint firstItem="tFi-2L-Wid" firstAttribute="centerX" secondItem="eVQ-PB-rWk" secondAttribute="centerX" id="yDE-6u-Ulc"/>
+                            <constraint firstItem="9Jt-Pn-ftJ" firstAttribute="top" secondItem="MWS-sW-dvh" secondAttribute="bottom" constant="102" id="ymZ-53-qAA"/>
+                            <constraint firstItem="tFi-2L-Wid" firstAttribute="top" secondItem="eVQ-PB-rWk" secondAttribute="bottom" constant="16" id="zik-iq-UGZ"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VPS-r1-on8" appends="YES" id="pPm-tZ-3bJ"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="Descriptor" destination="MWS-sW-dvh" id="4Es-Yi-bcN"/>
+                        <outlet property="NumberLineView" destination="9Jt-Pn-ftJ" id="VMU-e2-Co5"/>
+                        <outlet property="SliderButton" destination="maH-n1-DF3" id="SO3-7h-TXk"/>
+                        <outlet property="operatorbutton" destination="eGE-cG-MqR" id="7ou-nB-8SX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zp4-XW-18L" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="VPS-r1-on8" customClass="pincher" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
+                    <connections>
+                        <action selector="PinchToZoom:" destination="ceF-qW-hhn" id="Epj-oM-V84"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="144" y="-1382"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="=.png" width="128" height="128"/>
+        <image name="BlockNBallButton.png" width="512" height="512"/>
+        <image name="BlueBall.png" width="512" height="512"/>
+        <image name="Flower.png" width="400" height="400"/>
+        <image name="HideButton.png" width="128" height="128"/>
+        <image name="Instructional Scene for Flex Line.png" width="750" height="750"/>
+        <image name="NumberShapes Banner Logo.png" width="1984" height="411"/>
+        <image name="Orange.png" width="400" height="400"/>
+        <image name="Plus_Minus.png" width="128" height="128"/>
+        <image name="Record.png" width="400" height="400"/>
+        <image name="Reset.png" width="128" height="128"/>
+        <image name="ShowWithShapesButton.png" width="100" height="100"/>
+        <image name="Transparent Glass Circle.png" width="128" height="128"/>
+        <image name="Transparent Home.png" width="256" height="256"/>
+        <image name="Transparent Question Mark.png" width="256" height="256"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9ff-rx-pKT"/>
+        <segue reference="kge-a6-uuD"/>
+    </inferredMetricsTieBreakers>
 </document>
