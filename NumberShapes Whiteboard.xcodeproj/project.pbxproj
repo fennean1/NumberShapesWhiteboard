@@ -16,6 +16,9 @@
 		1C0256811C4E9F8C00C0FDE0 /* VerticalLineLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0256801C4E9F8C00C0FDE0 /* VerticalLineLabels.swift */; };
 		1C0256831C4E9F9500C0FDE0 /* VerticalLineMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0256821C4E9F9500C0FDE0 /* VerticalLineMarks.swift */; };
 		1C0A3B761C55966A007CAFD4 /* CountingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0A3B751C55966A007CAFD4 /* CountingView.swift */; };
+		1C0AB82321A5BEAC0057166A /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0AB82221A5BEAC0057166A /* Styles.swift */; };
+		1C0AB8B321A845B20057166A /* CloudsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0AB8B221A845B20057166A /* CloudsBackground.png */; };
+		1C0AB8B521A895B70057166A /* BlueRect.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0AB8B421A895B70057166A /* BlueRect.png */; };
 		1C1FFDD71D035B47003E0E15 /* HorizontalNumberLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FFDD61D035B47003E0E15 /* HorizontalNumberLine.swift */; };
 		1C1FFDDA1D0383E2003E0E15 /* PercentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FFDD91D0383E2003E0E15 /* PercentController.swift */; };
 		1C1FFDDD1D03958F003E0E15 /* PercentBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FFDDC1D03958F003E0E15 /* PercentBars.swift */; };
@@ -53,7 +56,6 @@
 		1C9663B41C2845990051980B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9663B31C2845990051980B /* LandingViewController.swift */; };
 		1CC43EE81C337D3E000DC545 /* BlueBlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC43EE71C337D3E000DC545 /* BlueBlock.png */; };
 		1CC43EEA1C339540000DC545 /* OrangeBlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC43EE91C339540000DC545 /* OrangeBlock.png */; };
-		1CC43EEC1C339556000DC545 /* BlueRect.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC43EEB1C339556000DC545 /* BlueRect.png */; };
 		1CC43EEE1C3413F3000DC545 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC43EED1C3413F3000DC545 /* Functions.swift */; };
 		1CC43EF21C3784F8000DC545 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC43EF11C3784F8000DC545 /* Help.swift */; };
 		1CCEEF731D0DB33400D56CD7 /* HighLightMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCEEF721D0DB33400D56CD7 /* HighLightMark.png */; };
@@ -134,6 +136,9 @@
 		1C0256801C4E9F8C00C0FDE0 /* VerticalLineLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalLineLabels.swift; sourceTree = "<group>"; };
 		1C0256821C4E9F9500C0FDE0 /* VerticalLineMarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalLineMarks.swift; sourceTree = "<group>"; };
 		1C0A3B751C55966A007CAFD4 /* CountingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingView.swift; sourceTree = "<group>"; };
+		1C0AB82221A5BEAC0057166A /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		1C0AB8B221A845B20057166A /* CloudsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloudsBackground.png; sourceTree = "<group>"; };
+		1C0AB8B421A895B70057166A /* BlueRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BlueRect.png; path = "../../../Master Projects/NumberShapes Whiteboard/Flex Assets/BlueRect.png"; sourceTree = "<group>"; };
 		1C1FFDD61D035B47003E0E15 /* HorizontalNumberLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalNumberLine.swift; sourceTree = "<group>"; };
 		1C1FFDD91D0383E2003E0E15 /* PercentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentController.swift; sourceTree = "<group>"; };
 		1C1FFDDC1D03958F003E0E15 /* PercentBars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentBars.swift; sourceTree = "<group>"; };
@@ -171,7 +176,6 @@
 		1C9663B31C2845990051980B /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		1CC43EE71C337D3E000DC545 /* BlueBlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BlueBlock.png; path = "Flex Assets/BlueBlock.png"; sourceTree = SOURCE_ROOT; };
 		1CC43EE91C339540000DC545 /* OrangeBlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OrangeBlock.png; path = "Flex Assets/OrangeBlock.png"; sourceTree = SOURCE_ROOT; };
-		1CC43EEB1C339556000DC545 /* BlueRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BlueRect.png; path = "Flex Assets/BlueRect.png"; sourceTree = SOURCE_ROOT; };
 		1CC43EED1C3413F3000DC545 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		1CC43EF11C3784F8000DC545 /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		1CCEEF721D0DB33400D56CD7 /* HighLightMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighLightMark.png; sourceTree = "<group>"; };
@@ -413,9 +417,9 @@
 				550238BB1BD0022A0029F82D /* PinkBall.png */,
 				1C3A38491D29C12D0082A4A5 /* BlockNBallButton.png */,
 				1CC43EE71C337D3E000DC545 /* BlueBlock.png */,
+				1C0AB8B421A895B70057166A /* BlueRect.png */,
 				550238B51BCFBC530029F82D /* BlueRing.png */,
 				550238BF1BD0077B0029F82D /* OrangeRing.png */,
-				1CC43EEB1C339556000DC545 /* BlueRect.png */,
 				1CC43EE91C339540000DC545 /* OrangeBlock.png */,
 				550238B71BCFBC580029F82D /* OrangeBall.png */,
 				550238BD1BD002320029F82D /* PinkRing.png */,
@@ -436,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				1C437BCD1D1A0BFA003D717A /* Swipe Right.png */,
+				1C0AB8B221A845B20057166A /* CloudsBackground.png */,
 				1C437BCE1D1A0BFA003D717A /* Swipe Up.png */,
 				1C437BCF1D1A0BFA003D717A /* PinchOut.png */,
 				1C437BD01D1A0BFA003D717A /* PinchIn.png */,
@@ -508,6 +513,7 @@
 		550238731BCE6C7F0029F82D = {
 			isa = PBXGroup;
 			children = (
+				1C0AB82221A5BEAC0057166A /* Styles.swift */,
 				5502387E1BCE6C800029F82D /* NumberShapes Whiteboard */,
 				550238931BCE6C810029F82D /* NumberShapes Line FlexTests */,
 				5502389E1BCE6C810029F82D /* NumberShapes Line FlexUITests */,
@@ -646,13 +652,16 @@
 					5502387B1BCE6C800029F82D = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = U44FL526BD;
+						LastSwiftMigration = 0830;
 					};
 					5502388F1BCE6C810029F82D = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 5502387B1BCE6C800029F82D;
 					};
 					5502389A1BCE6C810029F82D = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 5502387B1BCE6C800029F82D;
 					};
 				};
@@ -701,7 +710,6 @@
 				1C9663A31C27A9A30051980B /* Transparent Question Mark.png in Resources */,
 				55778DAE1BD682FB002FC756 /* 20.png in Resources */,
 				1C437BD81D1ADAC0003D717A /* PropButton.png in Resources */,
-				1CC43EEC1C339556000DC545 /* BlueRect.png in Resources */,
 				55778DBD1BD68CBC002FC756 /* -.png in Resources */,
 				55778D901BD5372E002FC756 /* ShowWithShapesButton.png in Resources */,
 				5502388A1BCE6C810029F82D /* LaunchScreen.storyboard in Resources */,
@@ -723,12 +731,14 @@
 				55778DAA1BD682FB002FC756 /* 7.png in Resources */,
 				1C55CD571C74A53C007B0A4E /* Transparent Home.png in Resources */,
 				55778DAC1BD682FB002FC756 /* 9.png in Resources */,
+				1C0AB8B521A895B70057166A /* BlueRect.png in Resources */,
 				550238B41BCF44970029F82D /* Line.png in Resources */,
 				550238B61BCFBC530029F82D /* BlueRing.png in Resources */,
 				55778DA71BD682FB002FC756 /* 4.png in Resources */,
 				1C9663A91C27A9BC0051980B /* 100.png in Resources */,
 				55778DA61BD682FB002FC756 /* 3.png in Resources */,
 				550238C01BD0077B0029F82D /* OrangeRing.png in Resources */,
+				1C0AB8B321A845B20057166A /* CloudsBackground.png in Resources */,
 				55778DC61BD898E5002FC756 /* Instructional Scene for Flex Line.png in Resources */,
 				1C3A384A1D29C12D0082A4A5 /* BlockNBallButton.png in Resources */,
 				55778DB41BD682FB002FC756 /* 80.png in Resources */,
@@ -769,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C0256721C4E9F2300C0FDE0 /* BallGrid.swift in Sources */,
+				1C0AB82321A5BEAC0057166A /* Styles.swift in Sources */,
 				550238821BCE6C800029F82D /* IntegerViewController.swift in Sources */,
 				1C0256811C4E9F8C00C0FDE0 /* VerticalLineLabels.swift in Sources */,
 				1CF9378C1C30BFAA0043FE63 /* HundredsViewController.swift in Sources */,
@@ -892,7 +903,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -931,7 +942,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -942,7 +953,7 @@
 		550238A51BCE6C810029F82D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "NumberShapes Line Flex/Info.plist";
@@ -950,6 +961,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.NumberShapes-Whiteboard";
 				PRODUCT_NAME = "NumberShapes Whiteboard";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -957,7 +969,7 @@
 		550238A61BCE6C810029F82D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "NumberShapes Line Flex/Info.plist";
@@ -965,6 +977,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.NumberShapes-Whiteboard";
 				PRODUCT_NAME = "NumberShapes Whiteboard";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -977,6 +990,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "NumberShapes.NumberShapes-Line-FlexTests";
 				PRODUCT_NAME = "NumberShapes Whiteboard";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberShapes Whiteboard.app/NumberShapes Whiteboard";
 			};
 			name = Debug;
@@ -989,6 +1003,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "NumberShapes.NumberShapes-Line-FlexTests";
 				PRODUCT_NAME = "NumberShapes Whiteboard";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberShapes Whiteboard.app/NumberShapes Whiteboard";
 			};
 			name = Release;
@@ -1000,6 +1015,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "NumberShapes.NumberShapes-Line-FlexUITests";
 				PRODUCT_NAME = "NumberShapes Whiteboard";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "NumberShapes Line Flex";
 				USES_XCTRUNNER = YES;
 			};
@@ -1012,6 +1028,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "NumberShapes.NumberShapes-Line-FlexUITests";
 				PRODUCT_NAME = "NumberShapes Whiteboard";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "NumberShapes Line Flex";
 				USES_XCTRUNNER = YES;
 			};

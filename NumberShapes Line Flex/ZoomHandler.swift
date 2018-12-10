@@ -15,8 +15,9 @@ class pincher: UIPinchGestureRecognizer
     
     // Balls is actually the max on the numberline
     
-    func handlePinch(var topOfLine: Int, balls: Int, scalefactor: CGFloat, max: Int) -> [Int]
+    func handlePinch(_ topOfLine: Int, balls: Int, scalefactor: CGFloat, max: Int) -> [Int]
     {
+        var topOfLine = topOfLine
         
         var MarksEvery = 1
         var TickEveryOther = 1

@@ -90,7 +90,7 @@ class ViewController: UIViewController {
     
     
     // The new lines and markers class has to handle this
-    @IBAction func HideButtonClicked(sender: UIButton)
+    @IBAction func HideButtonClicked(_ sender: UIButton)
     {
         Clear = !Clear
         HideYoLine()
@@ -104,20 +104,20 @@ class ViewController: UIViewController {
         {
             for index in 0...LabelArray.count-1
             {
-                LabelArray[index].hidden = true
+                LabelArray[index].isHidden = true
             }
         }
         else if Clear == false
         {
             for index in 0...LabelArray.count-1
             {
-                LabelArray[index].hidden = false
+                LabelArray[index].isHidden = false
             }
         }
     }
 
     
-    func CalculateGameState(M1: Int, M2: Int, WithShapes: Bool) -> String
+    func CalculateGameState(_ M1: Int, M2: Int, WithShapes: Bool) -> String
     {
         var gamestate = ""
         
@@ -155,7 +155,7 @@ class ViewController: UIViewController {
     
 
     
-    @IBAction func ShapeButtonClicked(sender: shapebutton)
+    @IBAction func ShapeButtonClicked(_ sender: shapebutton)
     {
         
         WithShapes = !WithShapes
@@ -172,7 +172,7 @@ class ViewController: UIViewController {
 
     
     // Handles clicks by the second operator button
-    @IBAction func SecondOperator(sender: operateTwiceButton)
+    @IBAction func SecondOperator(_ sender: operateTwiceButton)
     {
             // Set second mark to current slider value but only if it's not the same as the other mark.
             if Slider != Mark1
@@ -187,7 +187,7 @@ class ViewController: UIViewController {
     }
     
     
-    func UpdateStoryBoard(state: String)
+    func UpdateStoryBoard(_ state: String)
     {
         UpdateDescriptor()
         Descriptor.alignToState(state)
@@ -198,7 +198,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func FirstOperator(sender: operateOnceButton)
+    @IBAction func FirstOperator(_ sender: operateOnceButton)
     {
         GlobalState = CalculateGameState(Mark1, M2: Mark2, WithShapes: WithShapes)
         
@@ -226,7 +226,7 @@ class ViewController: UIViewController {
     }
     
     // Draws a ball at a given point
-    func DrawABall(DrawHere: Int)
+    func DrawABall(_ DrawHere: Int)
     {
         
         // Get the name of the image to draw based on where it is
@@ -261,7 +261,7 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func SliderValueChanged(sender: UISlider!)
+    @IBAction func SliderValueChanged(_ sender: UISlider!)
     {
 
         // Update slider position
@@ -288,7 +288,7 @@ class ViewController: UIViewController {
     
     
     
-    func Create1DImageArray(m: Int) -> [UIImageView]
+    func Create1DImageArray(_ m: Int) -> [UIImageView]
     {
         // Doing this apparently creates the first element of the array so I have to add few elements when appending
         var Array1D = [UIImageView()]
@@ -306,7 +306,7 @@ class ViewController: UIViewController {
         
     }
     
-    func Create1DLabelArray(m: Int) -> [UILabel]
+    func Create1DLabelArray(_ m: Int) -> [UILabel]
     {
         // Doing this apparently creates the first element of the array so I have to add few elements when appending
         var Array1D = [UILabel()]
@@ -325,25 +325,25 @@ class ViewController: UIViewController {
         
     }
     
-    func HandleSwipes(sender: UISwipeGestureRecognizer)
+    func HandleSwipes(_ sender: UISwipeGestureRecognizer)
     {
 
         
         
         // IncrementSlider
-        if sender.direction == .Left && Slider > 0
+        if sender.direction == .left && Slider > 0
         {
             Slider -= 1
         }
-        else if sender.direction == .Right && Slider < Length
+        else if sender.direction == .right && Slider < Length
         {
             Slider += 1
         }
-        else if sender.direction == .Up && Slider <= Length-10
+        else if sender.direction == .up && Slider <= Length-10
         {
             Slider = Slider + 10
         }
-        else if sender.direction == .Down && Slider >= 10
+        else if sender.direction == .down && Slider >= 10
         {
             Slider = Slider - 10
         }
@@ -364,7 +364,7 @@ class ViewController: UIViewController {
     
     
     // Draws the ball views on the view when resizing or adjusting range
-    func DrawBallsViewOnView(ObjDimX: CGFloat, ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UIImageView!])
+    func DrawBallsViewOnView(_ ObjDimX: CGFloat, ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UIImageView?])
     {
         // Populate everything except the first (0th) element of the array (We use a zeroth element of this array to handle error checking issues when slider is at zero.
         for Xindex in 1...ObjectArray.count-1
@@ -374,17 +374,17 @@ class ViewController: UIViewController {
             let x = CGFloat(Xindex-1)*Space
             
             // add the object at index to the view
-            NumberLineView.addSubview(ObjectArray[Xindex])
+            NumberLineView.addSubview(ObjectArray[Xindex]!)
             
             // set frame for objects at array index
-            ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
+            ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
             
         }
         
     }
     
     // Draws the tick markers on the view when resizing or adjusting range
-    func DrawTickMarkers(ObjDimX: CGFloat,ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UIImageView!])
+    func DrawTickMarkers(_ ObjDimX: CGFloat,ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UIImageView?])
     {
         
         // CURRENT METHOD: set a tick mark height for the ticks that get labels. Then reduce the marks that don't wind up over labels to some fraction of those that do.
@@ -405,29 +405,29 @@ class ViewController: UIViewController {
             let x = CGFloat(Xindex)*Space - ObjDimX/2
             
             // add the object at index to the view
-            NumberLineView.addSubview(ObjectArray[Xindex])
+            NumberLineView.addSubview(ObjectArray[Xindex]!)
             
             
             // Expand Tick Mark if hits and exmphasize mark
             if (Xindex*TickEveryOther)%Int(MarksEvery) == 0
             {
-                ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
+                ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
             }
             // Truncate ticks if they're at 5 and MarksEveryTen
             else if MarksEvery == 10 && Xindex%5 == 0
             {
                 
-               ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY+ObjDimY/8, width: MedObjDimX, height: MedObjDimY)
+               ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY+ObjDimY/8, width: MedObjDimX, height: MedObjDimY)
             }
             // else give bare minimum which is half the maximum tick mark
             else if Xindex%Int(MarksEvery) != 0
             {
-                ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY+MinObjDimY/2, width: MinObjDimX, height: MinObjDimY)
+                ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY+MinObjDimY/2, width: MinObjDimX, height: MinObjDimY)
                 
             }
     
             // Give it the tick
-            ObjectArray[Xindex].image = UIImage(named: "Tick")
+            ObjectArray[Xindex]?.image = UIImage(named: "Tick")
             
         }
         
@@ -435,7 +435,7 @@ class ViewController: UIViewController {
     
     
     // Draws the labels on the view
-    func DrawLabelMarkers(ObjDimX: CGFloat, ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UILabel!])
+    func DrawLabelMarkers(_ ObjDimX: CGFloat, ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UILabel?])
     {
         
         
@@ -446,10 +446,10 @@ class ViewController: UIViewController {
             let x = CGFloat(Xindex)*Space - ObjDimX/2
            
             // add the object at index to the view
-            NumberLineView.addSubview(ObjectArray[Xindex])
+            NumberLineView.addSubview(ObjectArray[Xindex]!)
             
             // set frame for objects at array index
-            ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
+            ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
             
             // Set Label text
             let CGXIndex = CGFloat(Xindex)
@@ -457,19 +457,19 @@ class ViewController: UIViewController {
             // If we let the font size equal the height and always keep the same height for our labels then this seems to work. More consistent and easier to picture.
             let FontSize = ObjDimY
             
-            ObjectArray[Xindex].textAlignment = NSTextAlignment.Center
-            ObjectArray[Xindex].adjustsFontSizeToFitWidth = true
-            ObjectArray[Xindex].font = UIFont(name: "ChalkBoard SE", size: FontSize)
+            ObjectArray[Xindex]?.textAlignment = NSTextAlignment.center
+            ObjectArray[Xindex]?.adjustsFontSizeToFitWidth = true
+            ObjectArray[Xindex]?.font = UIFont(name: "ChalkBoard SE", size: FontSize)
             
             
-            ObjectArray[Xindex].text = "\(Int(CGXIndex*MarksEvery))"
+            ObjectArray[Xindex]?.text = "\(Int(CGXIndex*MarksEvery))"
             
         }
         
     }
     
     // Draws a line through the center of the tick marks
-    func DrawTheActualLine(BallsHeight: CGFloat, TickY: CGFloat)
+    func DrawTheActualLine(_ BallsHeight: CGFloat, TickY: CGFloat)
     {
         // Remove and reset each time line is drawn (same prodedure for all numberline views)
         NumberLine.removeFromSuperview()
@@ -495,7 +495,7 @@ class ViewController: UIViewController {
     
     // This creates the Tick/Ball/Label and Line markers.  MOOOOOO All of this needs to be in it's own NumberLine class that manages it'self.
     // This should really only take marks every if i'm going to keep it in main (maign)
-    func DrawNumberLine(length: Int, MarksEvery: CGFloat)
+    func DrawNumberLine(_ length: Int, MarksEvery: CGFloat)
     {
         
         // Remove current views
@@ -513,7 +513,7 @@ class ViewController: UIViewController {
 
         
         // Calculate the number of intervals in the range
-        let LabelArrayLength = Int((CGLength - CGLength%MarksEvery)/MarksEvery)
+        let LabelArrayLength = Int((CGLength - CGLength.truncatingRemainder(dividingBy: MarksEvery))/MarksEvery)
         
         
         // Ball array lentgh is number of balls
@@ -568,7 +568,7 @@ class ViewController: UIViewController {
     }
 
     // This has an old name used for testing
-    @IBAction func adjustProgress(sender: pincher)
+    @IBAction func adjustProgress(_ sender: pincher)
     {
         
         // Place where balls are
@@ -596,13 +596,13 @@ class ViewController: UIViewController {
     
     
     // This resets the "pinched" boolean so that the logic knows that a new pinch has begun.
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         OldLength = Length
     }
     
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         
         DrawNumberLine(Length, MarksEvery: MarksEvery)
@@ -611,7 +611,7 @@ class ViewController: UIViewController {
     
     }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation)
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation)
     {
         DrawNumberLine(Length, MarksEvery: MarksEvery)
         HideYoLine()
@@ -620,6 +620,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad()
     {
+        let backGround = UIImageView()
+        backGround.image = UIImage(named: "CloudsBackground")
+        backGround.frame.styleFillContainer(container: self.view.frame)
+        view.addSubview(backGround)
+        view.sendSubview(toBack: backGround)
         
         self.title = "IntegerViewController"
         
@@ -634,16 +639,16 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(downSwipe)
         view.addGestureRecognizer(upSwipe)
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
-        downSwipe.direction = .Down
-        upSwipe.direction = .Up
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        downSwipe.direction = .down
+        upSwipe.direction = .up
         
        // Operator buttons not active upon startup
-       SecondOperator.hidden = true
-       SecondOperator.enabled = false
+       SecondOperator.isHidden = true
+       SecondOperator.isEnabled = false
         
-       SliderButton.setThumbImage(UIImage(named: "SeriousGlassThumb"), forState: .Normal)
+       SliderButton.setThumbImage(UIImage(named: "SeriousGlassThumb"), for: UIControlState())
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

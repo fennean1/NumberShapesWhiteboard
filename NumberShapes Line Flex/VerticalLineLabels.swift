@@ -15,7 +15,7 @@ class labelerup: UIView
     
     
     // This draws the labels on the view.
-    func drawme(rect: CGRect, n: Int)
+    func drawme(_ rect: CGRect, n: Int)
     {
         // Clear current views
         for view in self.subviews
@@ -46,7 +46,7 @@ class labelerup: UIView
             // Layout the label
             lbl.frame = CGRect(x: 0, y: starty, width: w, height: h)
             lbl.text = "\(index*lblsevery)"
-            lbl.textAlignment = NSTextAlignment.Center
+            lbl.textAlignment = NSTextAlignment.center
             lbl.adjustsFontSizeToFitWidth = true
             lbl.font = UIFont(name: "ChalkBoard SE", size: h*3/5)
             

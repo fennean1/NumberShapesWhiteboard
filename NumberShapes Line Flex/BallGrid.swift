@@ -20,14 +20,14 @@ class ballgrid: UIView
     }
     
     
-    func drawallballs(n: Int, x: Int, y: Int, xm: Int,ym: Int, propping: Bool, blocking: Bool)
+    func drawallballs(_ n: Int, x: Int, y: Int, xm: Int,ym: Int, propping: Bool, blocking: Bool)
     {
         clearsubviews()
 
         let topy = max(y,ym)
         let topx = max(x,xm)
         
-         BallArray = Array(count: n, repeatedValue:Array(count: n, repeatedValue: UIImageView()))
+         BallArray = Array(repeating: Array(repeating: UIImageView(), count: n), count: n)
        
         // Set self to incoming frame
         let dx = self.frame.height/CGFloat(n)
@@ -40,7 +40,7 @@ class ballgrid: UIView
                     for col in 0...topy-1
                     {
                         let ball = UIImageView()
-                        ball.opaque = true
+                        ball.isOpaque = true
                         self.addSubview(ball)
                         ball.frame = CGRect(x: CGFloat(row)*dx, y: self.frame.height - CGFloat(col+1)*dx, width: dx, height: dx)
                         
@@ -65,7 +65,7 @@ class ballgrid: UIView
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.blueColor()
+        self.backgroundColor = UIColor.blue
         self.clearsContextBeforeDrawing = true
         
         
@@ -74,7 +74,7 @@ class ballgrid: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
         
         

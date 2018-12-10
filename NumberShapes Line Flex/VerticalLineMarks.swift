@@ -16,7 +16,7 @@ class numberlineup: UIView
     var smallevery = 1
     var tinyevery = 1
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         
         // Parameters
@@ -27,9 +27,9 @@ class numberlineup: UIView
         
         // Getting context and set it up
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, linewidth)
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetLineCap(context, CGLineCap.Round)
+        context?.setLineWidth(linewidth)
+        context?.setStrokeColor(UIColor.black.cgColor)
+        context?.setLineCap(CGLineCap.round)
         
         let lblsevery = labelsevery(n)
         
@@ -51,28 +51,28 @@ class numberlineup: UIView
             
             if index == 0
             {
-                CGContextMoveToPoint(context, r, r)
-                CGContextAddLineToPoint(context, endx, r)
+                context?.move(to: CGPoint(x: r, y: r))
+                context?.addLine(to: CGPoint(x: endx, y: r))
                 
             }
             else if index == n
             {
                 // draw the last at half width cause it's at the origin
-                CGContextMoveToPoint(context, r, conty-r)
-                CGContextAddLineToPoint(context, w/2, endy-r)
+                context?.move(to: CGPoint(x: r, y: conty-r))
+                context?.addLine(to: CGPoint(x: w/2, y: endy-r))
             }
             else
             {
-                CGContextMoveToPoint(context, contx, conty)
-                CGContextAddLineToPoint(context, endx, endy)
+                context?.move(to: CGPoint(x: contx, y: conty))
+                context?.addLine(to: CGPoint(x: endx, y: endy))
             }
         }
         
         // Draw the line straight through
-        CGContextMoveToPoint(context, w/2, 0)
-        CGContextAddLineToPoint(context, w/2, dx*CGFloat(n))
+        context?.move(to: CGPoint(x: w/2, y: 0))
+        context?.addLine(to: CGPoint(x: w/2, y: dx*CGFloat(n)))
         
-        CGContextStrokePath(context)
+        context?.strokePath()
         
         
     }
@@ -81,14 +81,14 @@ class numberlineup: UIView
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
     }
     
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
         
         

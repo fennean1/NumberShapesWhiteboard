@@ -7,7 +7,7 @@ import Foundation
 // Takes a point on the numberline and returns the name of the image that should be at that point based on game attributes
 // Takes a point on the numberline and returns the name of the image that should be at that point based on game attributes
 // The name of the image as a function of game parameters
-func WhatAmI(M1: Int, M2: Int, S: Int, IAmAt: Int, State: String)-> String
+func WhatAmI(_ M1: Int, M2: Int, S: Int, IAmAt: Int, State: String)-> String
 {
     
     var IAM = ""

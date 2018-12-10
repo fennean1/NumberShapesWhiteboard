@@ -15,7 +15,7 @@ class block: UIImageView
     
     var imagearr = ["BlueBlock","BlueRect","OrangeBlock"]
     
-    func makeme(mark: Float, slider: Float, me: Float)
+    func makeme(_ mark: Float, slider: Float, me: Float)
     {
         
         let name = whosethisblock(mark, slider: slider, me: me)
@@ -33,7 +33,7 @@ class block: UIImageView
 }
 
 
-func whosethisblock(mark: Float,slider: Float, me: Float) -> String
+func whosethisblock(_ mark: Float,slider: Float, me: Float) -> String
 {
     
     let Img1 = "BlueBlock"

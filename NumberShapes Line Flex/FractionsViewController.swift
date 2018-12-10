@@ -4,7 +4,7 @@ import UIKit
 import Foundation
 import Darwin
 
-var setfrac: (Int!,Int!,Bool!) = (0,0,false)
+var setfrac: (Int?,Int?,Bool?) = (0,0,false)
 
 struct fractionModel
 {
@@ -21,13 +21,13 @@ class FractionsViewController: UIViewController
     
     var ScaleFactor = 1
     
-    var FractionBall = fractionball!(nil)
+    var FractionBall = fractionball()
     
-    var FractionBar = fractionbar!(nil)
+    var FractionBar = fractionbar()
     
-    var FractionDescriptorWithObjectName = fractionofathingdescriptor!(nil)
+    var FractionDescriptorWithObjectName = fractionofathingdescriptor()
     
-    @IBAction func switchwhattocut(sender: UIButton)
+    @IBAction func switchwhattocut(_ sender: UIButton)
     {
         
         fractionModel.CurrentImageName = sender.restorationIdentifier!
@@ -44,12 +44,12 @@ class FractionsViewController: UIViewController
 
     
     // This has the wrong name from when i was just fucking around
-    @IBAction func reduce(sender: UIPinchGestureRecognizer)
+    @IBAction func reduce(_ sender: UIPinchGestureRecognizer)
     {
         var n = fractionModel.Numerator
         var d = fractionModel.Denominator
         
-        if sender.state == .Ended
+        if sender.state == .ended
         {
             if fractionModel.Numerator != 0
             {
@@ -81,20 +81,20 @@ class FractionsViewController: UIViewController
         
     }
     
-    @IBAction func help(sender: UIButton)
+    @IBAction func help(_ sender: UIButton)
     {
         
         let help = helpmodel.fractionsHelp
         
         var i = 0
         
-        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: "Done", style: .Default , handler: nil)
+        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Done", style: .default , handler: nil)
         
         let instImgView = UIImageView()
         instImgView.image = help[i].1
         
-        let nextAction = UIAlertAction(title: "Next", style: .Default , handler: {(alertaction) -> Void in
+        let nextAction = UIAlertAction(title: "Next", style: .default , handler: {(alertaction) -> Void in
             
             i = i+1
             
@@ -103,13 +103,13 @@ class FractionsViewController: UIViewController
             vc.message =  help[j].0
             instImgView.image = help[j].1
             
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         })
         
         vc.addAction(okAction)
         vc.addAction(nextAction)
         
-        self.presentViewController(vc, animated: true, completion:{(alertaction) -> Void in
+        self.present(vc, animated: true, completion:{(alertaction) -> Void in
             
             instImgView.frame = CGRect(x: 0, y: 0, width: vc.view.frame.height/3, height: vc.view.frame.height/3)
             
@@ -122,7 +122,7 @@ class FractionsViewController: UIViewController
     
     
     
-    @IBAction func HandleSwipes(sender: UISwipeGestureRecognizer)
+    @IBAction func HandleSwipes(_ sender: UISwipeGestureRecognizer)
     {
         
         var n = fractionModel.Numerator
@@ -130,28 +130,28 @@ class FractionsViewController: UIViewController
         
         ScaleFactor = 1
         
-        if sender.direction == .Up
+        if sender.direction == .up
         {
             if d < 100
             {
                 d += 1
             }
         }
-        else if sender.direction == .Down
+        else if sender.direction == .down
         {
             if d != 1 && n != d
             {
                 d -= 1
             }
         }
-        else if sender.direction == .Left
+        else if sender.direction == .left
         {
             if n != 0
             {
                 n -= 1
             }
         }
-        else if sender.direction == .Right
+        else if sender.direction == .right
         {
             if d != n
             {
@@ -167,7 +167,7 @@ class FractionsViewController: UIViewController
     }
     
     
-    func GCD(A: Int, B: Int) -> Int
+    func GCD(_ A: Int, B: Int) -> Int
     {
         if A != B
         {
@@ -216,7 +216,7 @@ class FractionsViewController: UIViewController
     }
     
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         
         var fractiondescriptorframe: CGRect
@@ -270,6 +270,12 @@ class FractionsViewController: UIViewController
         
         super.viewDidLoad()
         
+        let backGround = UIImageView()
+        backGround.image = UIImage(named: "CloudsBackground")
+        backGround.frame.styleFillContainer(container: self.view.frame)
+        //view.addSubview(backGround)
+        //view.sendSubview(toBack: backGround)
+        
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(FractionsViewController.HandleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(FractionsViewController.HandleSwipes(_:)))
         
@@ -283,11 +289,11 @@ class FractionsViewController: UIViewController
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
-        upSwipe.direction = .Up
-        downSwipe.direction = .Down
+        upSwipe.direction = .up
+        downSwipe.direction = .down
         
         // Do any additional setup after loading the view, typically from a nib.
     }

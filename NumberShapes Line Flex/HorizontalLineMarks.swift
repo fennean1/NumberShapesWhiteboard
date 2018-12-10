@@ -16,7 +16,7 @@ class ghnumberline: UIView
     var smallevery = 1
     var tinyevery = 1
 
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         
         // Parameters
@@ -28,9 +28,9 @@ class ghnumberline: UIView
         
         // Getting context and set it up
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, linewidth)
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetLineCap(context, CGLineCap.Round)
+        context?.setLineWidth(linewidth)
+        context?.setStrokeColor(UIColor.black.cgColor)
+        context?.setLineCap(CGLineCap.round)
         
         let every = labelsevery(n)
         print(every)
@@ -62,27 +62,27 @@ class ghnumberline: UIView
             {
                 
                 // Draw the first at half length because it's at the origin
-                CGContextMoveToPoint(context, r, h/2)
-                CGContextAddLineToPoint(context, r, endy)
+                context?.move(to: CGPoint(x: r, y: h/2))
+                context?.addLine(to: CGPoint(x: r, y: endy))
                 
             }
             else if index == n
             {
-                CGContextMoveToPoint(context, contx-r, conty)
-                CGContextAddLineToPoint(context, endx-r, endy)
+                context?.move(to: CGPoint(x: contx-r, y: conty))
+                context?.addLine(to: CGPoint(x: endx-r, y: endy))
             }
             else
             {
-                CGContextMoveToPoint(context, contx, conty)
-                CGContextAddLineToPoint(context, endx, endy)
+                context?.move(to: CGPoint(x: contx, y: conty))
+                context?.addLine(to: CGPoint(x: endx, y: endy))
             }
         }
         
         // Draw the line straight through
-        CGContextMoveToPoint(context, 0, h/2)
-        CGContextAddLineToPoint(context, dx*CGFloat(n), h/2)
+        context?.move(to: CGPoint(x: 0, y: h/2))
+        context?.addLine(to: CGPoint(x: dx*CGFloat(n), y: h/2))
         
-        CGContextStrokePath(context)
+        context?.strokePath()
         
     }
     
@@ -91,14 +91,14 @@ class ghnumberline: UIView
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
     }
     
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
         
         

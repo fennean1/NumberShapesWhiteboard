@@ -15,7 +15,7 @@ class labeler: UIView
 
     
     // This draws the labels on the view.
-    func drawme(rect: CGRect, n: Int)
+    func drawme(_ rect: CGRect, n: Int)
     {
         
         // Add this to the arguement.  We want to be able to control how often the lables occur
@@ -48,7 +48,7 @@ class labeler: UIView
             // Layout the label
             lbl.frame = CGRect(x: -startx + CGFloat(index)*dx, y: 0, width: w, height: h)
             lbl.text = "\(index*every)"
-            lbl.textAlignment = NSTextAlignment.Center
+            lbl.textAlignment = NSTextAlignment.center
             lbl.adjustsFontSizeToFitWidth = true
             lbl.font = UIFont(name: "ChalkBoard SE", size: h*3/5)
             

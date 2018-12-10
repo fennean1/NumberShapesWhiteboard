@@ -20,10 +20,10 @@ var Mark = -1
 var blocking = false
 var oldslider = 0
 var nlw: CGFloat!
-var HundredsDescriptor = hundredsdescriptor!(nil)
-var CountingView = countingview!(nil)
-var HundredsNumberLine = horizontalnumberline!(nil)
-var HundredsKey = swipekey!(nil)
+var HundredsDescriptor = hundredsdescriptor()
+var CountingView = countingview()
+var HundredsNumberLine = horizontalnumberline()
+var HundredsKey = swipekey()
 
 
 class HundredsViewController: UIViewController
@@ -33,37 +33,37 @@ class HundredsViewController: UIViewController
     
     @IBOutlet weak var approximatorbutton: UIButton!
 
-    @IBAction func approximater(sender: UIButton)
+    @IBAction func approximater(_ sender: UIButton)
     {
         
-        if HundredsDescriptor.hidden == true && HundredsNumberLine.hidden == true
+        if HundredsDescriptor.isHidden == true && HundredsNumberLine.isHidden == true
         {
-            HundredsDescriptor.hidden = false
-            HundredsNumberLine.hidden = false
+            HundredsDescriptor.isHidden = false
+            HundredsNumberLine.isHidden = false
             
         }
-        else if HundredsDescriptor.hidden == false && HundredsNumberLine.hidden == false
+        else if HundredsDescriptor.isHidden == false && HundredsNumberLine.isHidden == false
         {
            
-            HundredsDescriptor.hidden = true
-            HundredsNumberLine.hidden = true
+            HundredsDescriptor.isHidden = true
+            HundredsNumberLine.isHidden = true
             
         }
         
     }
     
     
-    @IBAction func helpme(sender: UIButton)
+    @IBAction func helpme(_ sender: UIButton)
     {
         var i = 0
         
-        let vc = UIAlertController(title: "\n\n\n", message: helpmodel.hundredsHelp[i].0, preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: "Done", style: .Default , handler: nil)
+        let vc = UIAlertController(title: "\n\n\n", message: helpmodel.hundredsHelp[i].0, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Done", style: .default , handler: nil)
         
         let instImgView = UIImageView()
         instImgView.image = helpmodel.hundredsHelp[i].1
         
-        let nextAction = UIAlertAction(title: "Next", style: .Default , handler: {(alertaction) -> Void in
+        let nextAction = UIAlertAction(title: "Next", style: .default , handler: {(alertaction) -> Void in
             
                 i = i+1
                 
@@ -72,13 +72,13 @@ class HundredsViewController: UIViewController
             vc.message = helpmodel.hundredsHelp[j].0
             instImgView.image = helpmodel.hundredsHelp[j].1
             
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         })
         
         vc.addAction(okAction)
         vc.addAction(nextAction)
         
-        self.presentViewController(vc, animated: true, completion:{(alertaction) -> Void in
+        self.present(vc, animated: true, completion:{(alertaction) -> Void in
             
             instImgView.frame = CGRect(x: 0, y: 0, width: vc.view.frame.height/3, height: vc.view.frame.height/3)
             
@@ -92,19 +92,19 @@ class HundredsViewController: UIViewController
     
     
     
-    @IBAction func operatorclicked(sender: UIButton)
+    @IBAction func operatorclicked(_ sender: UIButton)
     {
         
         operating = !operating
         
         if operating
         {
-            sender.setImage(UIImage(named: "="), forState: .Normal)
+            sender.setImage(UIImage(named: "="), for: UIControlState())
             Mark = Slider
         }
         else if !operating
         {
-            sender.setImage(UIImage(named: "Plus_Minus"), forState: .Normal)
+            sender.setImage(UIImage(named: "Plus_Minus"), for: UIControlState())
             
             let top = max(Slider,Mark,n*100)
             let bot = min(Slider,Mark,oldslider)
@@ -121,10 +121,10 @@ class HundredsViewController: UIViewController
     
 
     
-    func pinched(sender: pinchit)
+    func pinched(_ sender: pinchit)
     {
   
-        if sender.state == .Ended
+        if sender.state == .ended
         {
             if sender.scale > 1
             {
@@ -175,26 +175,26 @@ class HundredsViewController: UIViewController
         
     }
     
-    func HandleSwipes(sender: UISwipeGestureRecognizer)
+    func HandleSwipes(_ sender: UISwipeGestureRecognizer)
     {
         
         
         var x = Int(Slider)
         
         // IncrementSlider
-        if sender.direction == .Left && x >= 10
+        if sender.direction == .left && x >= 10
         {
             x = x - 10
         }
-        else if sender.direction == .Right && x <= 100*n - 10
+        else if sender.direction == .right && x <= 100*n - 10
         {
             x = x + 10
         }
-        else if sender.direction == .Up && x <= 100*n - 1
+        else if sender.direction == .up && x <= 100*n - 1
         {
             x = x + 1
         }
-        else if sender.direction == .Down && x >= 1
+        else if sender.direction == .down && x >= 1
         {
             x = x - 1
         }
@@ -212,7 +212,7 @@ class HundredsViewController: UIViewController
 
     
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
      
         
@@ -269,7 +269,7 @@ class HundredsViewController: UIViewController
         view.addSubview(HundredsNumberLine)
         HundredsNumberLine.drawme(100*n)
         
-      CountingView.userInteractionEnabled = true
+      CountingView.isUserInteractionEnabled = true
     
       CountingView.setNeedsDisplay()
       
@@ -278,14 +278,20 @@ class HundredsViewController: UIViewController
     override func viewDidLoad()
     {
         
+        let backGround = UIImageView()
+        backGround.image = UIImage(named: "CloudsBackground")
+        backGround.frame.styleFillContainer(container: self.view.frame)
+        view.addSubview(backGround)
+        view.sendSubview(toBack: backGround)
+        
         // Gotta realign the states when reentering.  This is hakckey, sorry.
         if operating
         {
-            operatorbutton.setImage(EqualsButton, forState: .Normal)
+            operatorbutton.setImage(EqualsButton, for: UIControlState())
         }
         else if !operating
         {
-            operatorbutton.setImage(AddAndSub, forState: .Normal)
+            operatorbutton.setImage(AddAndSub, for: UIControlState())
         }
         
         // Setting up swipe gestures
@@ -305,14 +311,14 @@ class HundredsViewController: UIViewController
         view.addGestureRecognizer(downSwipe)
         view.addGestureRecognizer(upSwipe)
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
-        downSwipe.direction = .Down
-        upSwipe.direction = .Up
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        downSwipe.direction = .down
+        upSwipe.direction = .up
         
         pinch.cancelsTouchesInView = false
         
-        self.view.userInteractionEnabled = true
+        self.view.isUserInteractionEnabled = true
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     

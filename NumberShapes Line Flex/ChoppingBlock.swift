@@ -19,8 +19,9 @@ class choppingblock: UIView
     
 
     
-    func DrawHundredths(var decimal: Float)
+    func DrawHundredths(_ decimal: Float)
     {
+        var decimal = decimal
     
         decimal = precision(decimal, n: 2)
         
@@ -69,7 +70,7 @@ class choppingblock: UIView
 
     }
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         self.layer.sublayers?.removeAll()
         DrawHundredths(Decimal)
@@ -80,7 +81,7 @@ class choppingblock: UIView
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
     }
     
@@ -88,7 +89,7 @@ class choppingblock: UIView
     {
         super.init(frame: frame)
         self.clearsContextBeforeDrawing = true
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
     }
     

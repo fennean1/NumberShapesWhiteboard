@@ -9,7 +9,7 @@ class decimalblock: UIView
 {
     
     var img = UIImage(named: "BlueBlock")
-    var Mesh = mesh!(nil)
+    var Mesh = mesh()
     var Cut = true
     var WhatToCut = UIImageView()
     
@@ -21,7 +21,7 @@ class decimalblock: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
         WhatToCut.frame = self.bounds
         WhatToCut.image = img
@@ -48,13 +48,13 @@ class mesh: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.setNeedsDisplay()
         self.setvisibleregion(40, den: 100)
   
     }
     
-    func setvisibleregion(num: Int, den: Int)
+    func setvisibleregion(_ num: Int, den: Int)
     {
         
         let dx = self.frame.width/CGFloat(dim)
@@ -81,18 +81,18 @@ class mesh: UIView
             return CGRect(x: x, y: y, width: w, height: h)
         }
         
-        layerright.path = UIBezierPath(roundedRect: rightrect, cornerRadius: 0).CGPath
-        layerright.fillColor = UIColor.whiteColor().CGColor
+        layerright.path = UIBezierPath(roundedRect: rightrect, cornerRadius: 0).cgPath
+        layerright.fillColor = UIColor.white.cgColor
         self.layer.addSublayer(layerright)
         
-        layertop.path = UIBezierPath(roundedRect: toprect, cornerRadius: 0).CGPath
-        layertop.fillColor = UIColor.whiteColor().CGColor
+        layertop.path = UIBezierPath(roundedRect: toprect, cornerRadius: 0).cgPath
+        layertop.fillColor = UIColor.white.cgColor
         self.layer.addSublayer(layertop)
 
     }
 
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         
             let context = UIGraphicsGetCurrentContext()
@@ -104,26 +104,26 @@ class mesh: UIView
                 let dx = self.frame.width/CGFloat(dim)
                 
                 var y = CGFloat(0)
-                var x = DoubleIndex%11*dx
-                var End = CGPointMake(x, self.frame.width)
+                var x = DoubleIndex.truncatingRemainder(dividingBy: 11)*dx
+                var End = CGPoint(x: x, y: self.frame.width)
                 
                 // Flip to do the rows
                 if index >= dim + 1
                 {
                     y = x
                     x = 0
-                    End = CGPointMake(self.frame.width, y)
+                    End = CGPoint(x: self.frame.width, y: y)
                 }
                 
-                CGContextMoveToPoint(context, x, y)
+                context?.move(to: CGPoint(x: x, y: y))
                 
-                CGContextAddLineToPoint(context, End.x, End.y)
-                CGContextSetLineCap(context, CGLineCap.Round)
+                context?.addLine(to: CGPoint(x: End.x, y: End.y))
+                context?.setLineCap(CGLineCap.round)
                 
-                UIColor.whiteColor().setStroke()
+                UIColor.white.setStroke()
                 
-                CGContextSetLineWidth(context, dx/CGFloat(dim))
-                CGContextStrokePath(context)
+                context?.setLineWidth(dx/CGFloat(dim))
+                context?.strokePath()
                 
             }
         

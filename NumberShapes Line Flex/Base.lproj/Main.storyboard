@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6hQ-gU-lMt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6hQ-gU-lMt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,6 +53,9 @@
                                     <constraint firstAttribute="width" constant="540" id="LCp-ku-1tS"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="NumberShapes Banner Logo.png"/>
+                                <connections>
+                                    <action selector="moreApps:" destination="6hQ-gU-lMt" eventType="touchUpInside" id="OhK-p5-HSP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nug-iW-uYC" customClass="circleButton" customModule="NumberShapes_Whiteboard" customModuleProvider="target">
                                 <rect key="frame" x="313" y="427" width="30" height="30"/>
@@ -843,7 +846,7 @@
         <image name="Transparent Question Mark.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="9ff-rx-pKT"/>
         <segue reference="kge-a6-uuD"/>
-        <segue reference="hA7-Oj-Pxx"/>
     </inferredMetricsTieBreakers>
 </document>

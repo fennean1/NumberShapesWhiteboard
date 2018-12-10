@@ -19,7 +19,7 @@ class pinchhandler: UIPinchGestureRecognizer
     }
     
     
-    func GetNewN(minpossibleN: Int, maxpossibleN: Int, scale: CGFloat, n: Int) -> Int
+    func GetNewN(_ minpossibleN: Int, maxpossibleN: Int, scale: CGFloat, n: Int) -> Int
     {
         
         self.cancelsTouchesInView = false
@@ -54,7 +54,7 @@ class pinchit: UIPinchGestureRecognizer
     var newval: CGFloat = 1
     var returnval: Int!
     
-    func newn(minn: CGFloat,scale: CGFloat,maxx: CGFloat, current: CGFloat) -> Int
+    func newn(_ minn: CGFloat,scale: CGFloat,maxx: CGFloat, current: CGFloat) -> Int
     {
         
         newval = CGFloat(current)*1/(scale*scale)
@@ -105,12 +105,12 @@ class swipekey: UIView
         for i in 0...3
         {
             let new = UILabel()
-            new.backgroundColor = UIColor.clearColor()
+            new.backgroundColor = UIColor.clear
             new.font = UIFont(name: "Chalkboard SE", size: self.frame.height/8)
-            new.textAlignment = .Center
+            new.textAlignment = .center
             self.addSubview(new)
             lbls.append(new)
-            lbls[i].frame = CGRect(origin: CGPointZero, size: size)
+            lbls[i].frame = CGRect(origin: CGPoint.zero, size: size)
 
         }
     
@@ -123,14 +123,14 @@ class swipekey: UIView
         lbls[1].center = CGPoint(x: p1, y: p0) // Up
         lbls[2].center = CGPoint(x: p2, y: p1) // Right
         lbls[3].center = CGPoint(x: p1, y: p2) // Down
-        keyImage.frame = CGRect(origin: CGPointZero, size: size)
+        keyImage.frame = CGRect(origin: CGPoint.zero, size: size)
         keyImage.center = CGPoint(x: p1, y: p1) //Image
         keyImage.image = UIImage(named: "SwipeKey2")
         self.addSubview(keyImage)
         
     }
     
-    func setkey(up: String, left: String,right: String,down: String,emph: Int?)
+    func setkey(_ up: String, left: String,right: String,down: String,emph: Int?)
     {
         lbls[0].text = left
         lbls[1].text = up
@@ -139,7 +139,7 @@ class swipekey: UIView
         
         if let i = emph
         {
-            lbls[i].textColor = UIColor.blueColor()
+            lbls[i].textColor = UIColor.blue
         }
     }
     

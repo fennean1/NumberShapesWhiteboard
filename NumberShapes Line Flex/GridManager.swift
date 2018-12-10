@@ -11,7 +11,7 @@ import UIKit
 
 
 // This finds the name of the ball that needs to be displayed at a given location on the grid. This function will actually be called for each and every ball that appears on the grid.
-func findmyballs(x: Int, y: Int, xm: Int, ym: Int, lx: Int, ly: Int, propping: Bool, blocking: Bool) -> String
+func findmyballs(_ x: Int, y: Int, xm: Int, ym: Int, lx: Int, ly: Int, propping: Bool, blocking: Bool) -> String
 {
     
 
@@ -43,29 +43,30 @@ func findmyballs(x: Int, y: Int, xm: Int, ym: Int, lx: Int, ly: Int, propping: B
 
     
     // Key: Index: 0-> SolidBlue? 1-> OpenBlue? 2-> SolidOrange? 3-> OpenOrange
-    func NoEdgeCaseProtocol(var l: Int,m: Int,v:Int) -> String
+    func NoEdgeCaseProtocol(_ l: Int,m: Int,v:Int) -> String
     {
+        var l = l
         var theball: String!
         
         l = l+1
         
-        let a = [l,m,v].sort(<)
+        let a = [l,m,v].sorted(by: <)
         
         let option: (Int,Int,Int)? = (a[0],a[1],a[2])
         
-        if case .Some(-1,_,_) = option
+        if case .some(-1,_,_) = option
         {
             theball = solidblue
         }
-        else if case .Some(l,_,_) = option
+        else if case .some(l,_,_) = option
         {
             theball = solidblue
         }
-        else if case .Some(m,l,_) = option
+        else if case .some(m,l,_) = option
         {
             theball = solidorange
         }
-        else if case .Some(v,l,_) = option
+        else if case .some(v,l,_) = option
         {
             if propping == true
             {

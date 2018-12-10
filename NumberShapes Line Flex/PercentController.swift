@@ -15,19 +15,19 @@ class PercentsViewController: UIViewController
 
     let pinch = pinchit()
     
-    @IBAction func helpme(sender: UIButton)
+    @IBAction func helpme(_ sender: UIButton)
     {
         let help = helpmodel.percentsHelp
         
         var i = 0
         
-        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: "Done", style: .Default , handler: nil)
+        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Done", style: .default , handler: nil)
         
         let instImgView = UIImageView()
         instImgView.image = help[i].1
         
-        let nextAction = UIAlertAction(title: "Next", style: .Default , handler: {(alertaction) -> Void in
+        let nextAction = UIAlertAction(title: "Next", style: .default , handler: {(alertaction) -> Void in
             
             i = i+1
             
@@ -36,13 +36,13 @@ class PercentsViewController: UIViewController
             vc.message =  help[j].0
             instImgView.image = help[j].1
             
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         })
         
         vc.addAction(okAction)
         vc.addAction(nextAction)
         
-        self.presentViewController(vc, animated: true, completion:{(alertaction) -> Void in
+        self.present(vc, animated: true, completion:{(alertaction) -> Void in
             
             instImgView.frame = CGRect(x: 0, y: 0, width: vc.view.frame.height/3, height: vc.view.frame.height/3)
             
@@ -55,7 +55,7 @@ class PercentsViewController: UIViewController
 
     
     
-    @IBAction func reset(sender: UIButton)
+    @IBAction func reset(_ sender: UIButton)
     {
         
         model.percent = 50
@@ -76,47 +76,47 @@ class PercentsViewController: UIViewController
         
     }
     
-    func handleswipes(sender: UISwipeGestureRecognizer)
+    func handleswipes(_ sender: UISwipeGestureRecognizer)
     {
         
             if model.hundredselected == true
             {
                 
-                if sender.direction == .Up && model.hundredval <= model.linelength - 0.1
+                if sender.direction == .up && model.hundredval <= model.linelength - 0.1
                 {
                     print("swipedup")
                     model.hundredval = model.hundredval + 0.1
                 }
-                else if sender.direction == .Down && model.hundredval >= 0.1
+                else if sender.direction == .down && model.hundredval >= 0.1
                 {
                     model.hundredval = model.hundredval - 0.1
                 }
                     
-                if sender.direction == .Right && model.hundredval <= model.linelength - 0.01
+                if sender.direction == .right && model.hundredval <= model.linelength - 0.01
                 {
                     model.hundredval = model.hundredval + 0.01
                 }
-                else if sender.direction == .Left && model.hundredval >= 0.01
+                else if sender.direction == .left && model.hundredval >= 0.01
                 {
                     model.hundredval = model.hundredval - 0.01
                 }
             }
             else if model.percentselected == true
             {
-                if sender.direction == .Up && model.percent <= Int(model.linelength) - 10
+                if sender.direction == .up && model.percent <= Int(model.linelength) - 10
                 {
                     model.percent = model.percent + 10
                 }
-                else if sender.direction == .Down && model.percent >= 10
+                else if sender.direction == .down && model.percent >= 10
                 {
                     model.percent = model.percent - 10
                 }
                 
-                if sender.direction == .Right && model.percent <= Int(model.linelength) - 1
+                if sender.direction == .right && model.percent <= Int(model.linelength) - 1
                 {
                     model.percent = model.percent + 1
                 }
-                else if sender.direction == .Left && Int(model.percent) >= 1
+                else if sender.direction == .left && Int(model.percent) >= 1
                 {
                     model.percent = model.percent - 1
                 }
@@ -168,7 +168,7 @@ class PercentsViewController: UIViewController
     }
     
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
     
         Describer = describer(frame: describerframe)
@@ -182,7 +182,7 @@ class PercentsViewController: UIViewController
         
     }
 
-    func pinched(sender: pinchit)
+    func pinched(_ sender: pinchit)
     {
 
         let _minn = max(model.hundredval,model.percenttodec*model.hundredval)
@@ -190,7 +190,7 @@ class PercentsViewController: UIViewController
         
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         print("Poop")
         
@@ -209,8 +209,13 @@ class PercentsViewController: UIViewController
     
     override func viewDidLoad()
     {
-        
         super.viewDidLoad()
+        
+        let backGround = UIImageView()
+        backGround.image = UIImage(named: "CloudsBackground")
+        backGround.frame.styleFillContainer(container: self.view.frame)
+        view.addSubview(backGround)
+        view.sendSubview(toBack: backGround)
 
         pinch.cancelsTouchesInView = false
         pinch.addTarget(self, action: #selector(self.pinched(_:)))
@@ -228,10 +233,10 @@ class PercentsViewController: UIViewController
         view.addGestureRecognizer(downSwipe)
         view.addGestureRecognizer(upSwipe)
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
-        downSwipe.direction = .Down
-        upSwipe.direction = .Up
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        downSwipe.direction = .down
+        upSwipe.direction = .up
         
     
 

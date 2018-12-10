@@ -10,8 +10,9 @@ import Foundation
 
 // m = mark, v = value of slider, l = location you're evaluating
 
-func whoami(m: Int, v: Int,var l: Int, imgarr: [String]) -> String
+func whoami(_ m: Int, v: Int,l: Int, imgarr: [String]) -> String
 {
+    var l = l
     
     // Simply for naming so we can trace in the if statements
     let solidblue = imgarr[0]
@@ -26,19 +27,19 @@ func whoami(m: Int, v: Int,var l: Int, imgarr: [String]) -> String
         // Some index correction bullshit for this. Not totally tranparent but it's been working well.
         l += 1
     
-        let a = [l,m,v].sort(<)
+        let a = [l,m,v].sorted(by: <)
         
         let option: (Int,Int,Int)? = (a[0],a[1],a[2])
         
-        if case .Some(-1,l,_) = option
+        if case .some(-1,l,_) = option
         {
             theball = solidblue
         }
-        else if case .Some(-1,_,l) = option
+        else if case .some(-1,_,l) = option
         {
             theball = Nill
         }
-        else if case .Some(m,l,_) = option
+        else if case .some(m,l,_) = option
         {
             if m == l
             {
@@ -49,7 +50,7 @@ func whoami(m: Int, v: Int,var l: Int, imgarr: [String]) -> String
                 theball = solidorange
             }
         }
-        else if case .Some(v,l,_) = option
+        else if case .some(v,l,_) = option
         {
             if l == v
             {
@@ -60,11 +61,11 @@ func whoami(m: Int, v: Int,var l: Int, imgarr: [String]) -> String
                 theball = openblue
             }
         }
-        else if case .Some(l,v,_) = option
+        else if case .some(l,v,_) = option
         {
             theball = solidblue
         }
-        else if case .Some(_,m,v) = option
+        else if case .some(_,m,v) = option
         {
             theball = solidblue
         }
@@ -75,7 +76,7 @@ func whoami(m: Int, v: Int,var l: Int, imgarr: [String]) -> String
 }
 
 
-func precision(x: Float,n: Int) -> Float
+func precision(_ x: Float,n: Int) -> Float
 {
     let y = pow(10,Double(n))
     return Float(round(Double(x)*y)/y)

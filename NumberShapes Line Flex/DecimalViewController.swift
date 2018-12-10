@@ -72,31 +72,31 @@ class DecimalViewController: UIViewController {
     // Array to store labels
     var LabelArray = [UILabel()]
     
-    @IBAction func hide(sender: UIButton)
+    @IBAction func hide(_ sender: UIButton)
     {
        
         for index in LabelArray
         {
-            index.hidden = !index.hidden
+            index.isHidden = !index.isHidden
         }
        
     }
     
     
 
-    @IBAction func help(sender: UIButton)
+    @IBAction func help(_ sender: UIButton)
     {
         let help = helpmodel.decimalsHelp
         
         var i = 0
         
-        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: "Done", style: .Default , handler: nil)
+        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Done", style: .default , handler: nil)
         
         let instImgView = UIImageView()
         instImgView.image = help[i].1
         
-        let nextAction = UIAlertAction(title: "Next", style: .Default , handler: {(alertaction) -> Void in
+        let nextAction = UIAlertAction(title: "Next", style: .default , handler: {(alertaction) -> Void in
             
             i = i+1
             
@@ -105,13 +105,13 @@ class DecimalViewController: UIViewController {
             vc.message =  help[j].0
             instImgView.image = help[j].1
             
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         })
         
         vc.addAction(okAction)
         vc.addAction(nextAction)
         
-        self.presentViewController(vc, animated: true, completion:{(alertaction) -> Void in
+        self.present(vc, animated: true, completion:{(alertaction) -> Void in
             
             instImgView.frame = CGRect(x: 0, y: 0, width: vc.view.frame.height/3, height: vc.view.frame.height/3)
             
@@ -123,7 +123,7 @@ class DecimalViewController: UIViewController {
     
  
     
-    @IBAction func operatorclicked(sender: UIButton)
+    @IBAction func operatorclicked(_ sender: UIButton)
     {
         
         BlockLine.Mark = precision(SliderButton.value, n: 2)
@@ -133,11 +133,11 @@ class DecimalViewController: UIViewController {
         
         if operating
         {
-            sender.setImage(UIImage(named: "="), forState: .Normal)
+            sender.setImage(UIImage(named: "="), for: UIControlState())
         }
         else if !operating
         {
-             sender.setImage(UIImage(named: "Plus_Minus"), forState: .Normal)
+             sender.setImage(UIImage(named: "Plus_Minus"), for: UIControlState())
             Mark = -1
             BlockLine.Mark = Mark
         }
@@ -156,14 +156,14 @@ class DecimalViewController: UIViewController {
         {
             for index in 0...LabelArray.count-1
             {
-                LabelArray[index].hidden = true
+                LabelArray[index].isHidden = true
             }
         }
         else if Clear == false
         {
             for index in 0...LabelArray.count-1
             {
-                LabelArray[index].hidden = false
+                LabelArray[index].isHidden = false
             }
         }
     }
@@ -206,7 +206,7 @@ class DecimalViewController: UIViewController {
     
     
     
-    @IBAction func SliderValueChanged(sender: UISlider!)
+    @IBAction func SliderValueChanged(_ sender: UISlider!)
     {
         
         // Update slider position
@@ -254,7 +254,7 @@ class DecimalViewController: UIViewController {
     }
     
     
-    func Create1DImageArray(m: Int) -> [UIImageView]
+    func Create1DImageArray(_ m: Int) -> [UIImageView]
     {
         // Doing this apparently creates the first element of the array so I have to add few elements when appending
         var Array1D = [UIImageView()]
@@ -272,7 +272,7 @@ class DecimalViewController: UIViewController {
         
     }
     
-    func Create1DLabelArray(m: Int) -> [UILabel]
+    func Create1DLabelArray(_ m: Int) -> [UILabel]
     {
         // Doing this apparently creates the first element of the array so I have to add few elements when appending
         var Array1D = [UILabel()]
@@ -288,7 +288,7 @@ class DecimalViewController: UIViewController {
         
     }
     
-    func HandleSwipes(sender: UISwipeGestureRecognizer)
+    func HandleSwipes(_ sender: UISwipeGestureRecognizer)
     {
         
         var x = precision(SliderButton.value,n: 2)
@@ -296,19 +296,19 @@ class DecimalViewController: UIViewController {
         BlockLine.setNeedsDisplay()
         
         // IncrementSlider
-        if sender.direction == .Left && x >= 0.1
+        if sender.direction == .left && x >= 0.1
         {
             x = x - 0.1
         }
-        else if sender.direction == .Right && x <= (Float(Length) - 0.1)
+        else if sender.direction == .right && x <= (Float(Length) - 0.1)
         {
             x = x + 0.1
         }
-        else if sender.direction == .Up && x <= (Float(Length) - 0.01)
+        else if sender.direction == .up && x <= (Float(Length) - 0.01)
         {
             x = x + 0.01
         }
-        else if sender.direction == .Down && x >= 0.01
+        else if sender.direction == .down && x >= 0.01
         {
             x = x - 0.01
         }
@@ -324,7 +324,7 @@ class DecimalViewController: UIViewController {
     
     
     // Draws the tick markers on the view when resizing or adjusting range
-    func DrawTickMarkers(ObjDimX: CGFloat,ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UIImageView!])
+    func DrawTickMarkers(_ ObjDimX: CGFloat,ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UIImageView?])
     {
         
         
@@ -346,29 +346,29 @@ class DecimalViewController: UIViewController {
             let x = CGFloat(Xindex)*Space - ObjDimX/2
             
             // add the object at index to the view
-            NumberLineView.addSubview(ObjectArray[Xindex])
+            NumberLineView.addSubview(ObjectArray[Xindex]!)
             
             
             // Expand Tick Mark if hits and exmphasize mark
             if (Xindex*TickEveryOther)%Int(MarksEvery) == 0
             {
-                ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
+                ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
             }
                 // Truncate ticks if they're at 5 and MarksEveryTen
             else if MarksEvery == 10 && Xindex%5 == 0
             {
                 
-                ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY+ObjDimY/8, width: MedObjDimX, height: MedObjDimY)
+                ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY+ObjDimY/8, width: MedObjDimX, height: MedObjDimY)
             }
                 // else give bare minimum which is half the maximum tick mark
             else if Xindex%Int(MarksEvery) != 0
             {
-                ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY+MinObjDimY/2, width: MinObjDimX, height: MinObjDimY)
+                ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY+MinObjDimY/2, width: MinObjDimX, height: MinObjDimY)
                 
             }
             
             // Give it the tick
-            ObjectArray[Xindex].image = UIImage(named: "Tick")
+            ObjectArray[Xindex]?.image = UIImage(named: "Tick")
             
         }
         
@@ -376,7 +376,7 @@ class DecimalViewController: UIViewController {
     
     
     // Draws the labels on the view
-    func DrawLabelMarkers(ObjDimX: CGFloat, ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UILabel!])
+    func DrawLabelMarkers(_ ObjDimX: CGFloat, ObjDimY: CGFloat, Space: CGFloat, ObjCordY: CGFloat, ObjectArray: [UILabel?])
     {
         
         
@@ -387,10 +387,10 @@ class DecimalViewController: UIViewController {
             let x = CGFloat(Xindex)*Space - ObjDimX/2
             
             // add the object at index to the view
-            NumberLineView.addSubview(ObjectArray[Xindex])
+            NumberLineView.addSubview(ObjectArray[Xindex]!)
             
             // set frame for objects at array index
-            ObjectArray[Xindex].frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
+            ObjectArray[Xindex]?.frame = CGRect(x: x, y: ObjCordY, width: ObjDimX, height: ObjDimY)
             
             // Set Label text
             let CGXIndex = CGFloat(Xindex)
@@ -398,19 +398,19 @@ class DecimalViewController: UIViewController {
             // If we let the font size equal the height and always keep the same height for our labels then this seems to work. More consistent and easier to picture.
             let FontSize = ObjDimY
             
-            ObjectArray[Xindex].textAlignment = NSTextAlignment.Center
-            ObjectArray[Xindex].adjustsFontSizeToFitWidth = true
-            ObjectArray[Xindex].font = UIFont(name: "ChalkBoard SE", size: FontSize)
+            ObjectArray[Xindex]?.textAlignment = NSTextAlignment.center
+            ObjectArray[Xindex]?.adjustsFontSizeToFitWidth = true
+            ObjectArray[Xindex]?.font = UIFont(name: "ChalkBoard SE", size: FontSize)
             
             
-            ObjectArray[Xindex].text = "\(Int(CGXIndex*MarksEvery))"
+            ObjectArray[Xindex]?.text = "\(Int(CGXIndex*MarksEvery))"
             
         }
         
     }
     
     // Draws a line through the center of the tick marks
-    func DrawTheActualLine(BallsHeight: CGFloat, TickY: CGFloat)
+    func DrawTheActualLine(_ BallsHeight: CGFloat, TickY: CGFloat)
     {
         // Remove and reset each time line is drawn (same prodedure for all numberline views)
         NumberLine.removeFromSuperview()
@@ -436,7 +436,7 @@ class DecimalViewController: UIViewController {
     
     // This creates the Tick/Ball/Label and Line markers.  MOOOOOO All of this needs to be in it's own NumberLine class that manages it'self.
     // This should really only take marks every if i'm going to keep it in main (maign)
-    func DrawNumberLine(length: Int, MarksEvery: CGFloat)
+    func DrawNumberLine(_ length: Int, MarksEvery: CGFloat)
     {
         
         // Remove current views
@@ -457,7 +457,7 @@ class DecimalViewController: UIViewController {
         
         
         // Calculate the number of intervals in the range
-        let LabelArrayLength = Int((CGLength - CGLength%MarksEvery)/MarksEvery)
+        let LabelArrayLength = Int((CGLength - CGLength.truncatingRemainder(dividingBy: MarksEvery))/MarksEvery)
         
         
         // Ball array lentgh is number of balls
@@ -506,7 +506,7 @@ class DecimalViewController: UIViewController {
     }
     
     // This has an old name used for testing
-    @IBAction func PinchToZoom(sender: pincher)
+    @IBAction func PinchToZoom(_ sender: pincher)
     {
         
         // Set Cap on how much it can move in a single pinch
@@ -535,14 +535,14 @@ class DecimalViewController: UIViewController {
     
     
     // This resets the "pinched" boolean so that the logic knows that a new pinch has begun.
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         // This was added for extra pinch control (no overflow)
         OldLength = Length
     }
     
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         
         DrawNumberLine(Length, MarksEvery: MarksEvery)
@@ -557,7 +557,7 @@ class DecimalViewController: UIViewController {
         
     }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation)
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation)
     {
         DrawNumberLine(Length, MarksEvery: MarksEvery)
         HideYoLine()
@@ -566,6 +566,12 @@ class DecimalViewController: UIViewController {
     
     override func viewDidLoad()
     {
+        let backGround = UIImageView()
+        backGround.image = UIImage(named: "CloudsBackground")
+        backGround.frame.styleFillContainer(container: self.view.frame)
+        view.addSubview(backGround)
+        view.sendSubview(toBack: backGround)
+        
         self.title = "DecimalViewController"
         
         // Setting up swipe gestures
@@ -579,13 +585,13 @@ class DecimalViewController: UIViewController {
         view.addGestureRecognizer(downSwipe)
         view.addGestureRecognizer(upSwipe)
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
-        downSwipe.direction = .Down
-        upSwipe.direction = .Up
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        downSwipe.direction = .down
+        upSwipe.direction = .up
         
         
-        SliderButton.setThumbImage(UIImage(named: "SeriousGlassThumb"), forState: .Normal)
+        SliderButton.setThumbImage(UIImage(named: "SeriousGlassThumb"), for: UIControlState())
         
         
         super.viewDidLoad()

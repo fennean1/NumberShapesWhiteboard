@@ -9,11 +9,11 @@ class fractionbar: UIView
 {
     
     var img = Dollar
-    var Lattice = lattice!(nil)
+    var Lattice = lattice()
     var Cut = true
     var WhatToCut = UIImageView()
     
-    func write(N: Int, D: Int, Img: String)
+    func write(_ N: Int, D: Int, Img: String)
     {
         Lattice.setvisibleregion(N, den: D)
         Lattice.setNeedsDisplay()
@@ -50,13 +50,13 @@ class lattice: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
         self.setNeedsDisplay()
         
     }
     
-    func setvisibleregion(num: Int, den: Int)
+    func setvisibleregion(_ num: Int, den: Int)
     {
         
         D = den
@@ -73,15 +73,15 @@ class lattice: UIView
             return CGRect(x: x, y: y, width: w, height: h)
         }
         
-        overlay.path = UIBezierPath(roundedRect: overlayrect, cornerRadius: 0).CGPath
-        overlay.fillColor = UIColor.whiteColor().CGColor
+        overlay.path = UIBezierPath(roundedRect: overlayrect, cornerRadius: 0).cgPath
+        overlay.fillColor = UIColor.white.cgColor
         self.layer.addSublayer(overlay)
         self.setNeedsDisplay()
         
     }
     
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         
         let context = UIGraphicsGetCurrentContext()
@@ -94,17 +94,17 @@ class lattice: UIView
             
             let y = CGFloat(0)
             let x = DoubleIndex*dx
-            let End = CGPointMake(x, self.frame.width)
+            let End = CGPoint(x: x, y: self.frame.width)
             
-            CGContextMoveToPoint(context, x, y)
+            context?.move(to: CGPoint(x: x, y: y))
             
-            CGContextAddLineToPoint(context, End.x, End.y)
-            CGContextSetLineCap(context, CGLineCap.Round)
+            context?.addLine(to: CGPoint(x: End.x, y: End.y))
+            context?.setLineCap(CGLineCap.round)
             
-            UIColor.whiteColor().setStroke()
+            UIColor.white.setStroke()
             
-            CGContextSetLineWidth(context, sqrt(dx/CGFloat(3*D)))
-            CGContextStrokePath(context)
+            context?.setLineWidth(sqrt(dx/CGFloat(3*D)))
+            context?.strokePath()
             
         }
     }

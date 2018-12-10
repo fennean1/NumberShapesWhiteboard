@@ -28,21 +28,21 @@ class countingview: UIView
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)!
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
     }
     
     override init(frame: CGRect)
     {
         super.init(frame: frame)
         
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
         self.clearsContextBeforeDrawing = true
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.setNeedsDisplay()
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         
         self.setNeedsDisplay()
@@ -50,7 +50,7 @@ class countingview: UIView
         
         let touch = touches.first
         
-        let touchpoint = touch?.locationInView(self)
+        let touchpoint = touch?.location(in: self)
         
         // find the number of tens from the x value
         let x = Int((touchpoint!.x)/self.frame.width*CGFloat(100*n))
@@ -71,7 +71,7 @@ class countingview: UIView
     }
     
     // These are values that need only be computed once
-    func presets(n: Int, slider: Int, mark: Int, blocking: Bool)
+    func presets(_ n: Int, slider: Int, mark: Int, blocking: Bool)
     {
         
         // Clear current views
@@ -87,7 +87,7 @@ class countingview: UIView
          dx = self.frame.width/(CGFloat(10*n))
          w = dx
          h = w
-         self.backgroundColor = UIColor.clearColor()
+         self.backgroundColor = UIColor.clear
         
         for index in 0...100*n
         {
@@ -99,9 +99,9 @@ class countingview: UIView
             let h = w
             let y = self.frame.height - CGFloat(ones+1)*dx
             
-            let ballframe = CGRect(x: x, y: y, width: w, height: h)
+            let ballframe = CGRect(x: x, y: y, width: w!, height: h!)
             let ball = UIImageView()
-            ball.backgroundColor = UIColor.clearColor()
+            ball.backgroundColor = UIColor.clear
             ball.frame = ballframe
             self.addSubview(ball)
             
@@ -126,17 +126,17 @@ class countingview: UIView
 
     }
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         let path = UIBezierPath(rect: self.bounds)
-        UIColor.darkGrayColor().setStroke()
+        UIColor.darkGray.setStroke()
         path.lineWidth = 0.5
         path.stroke()
         
     }
     
     
-    func drawcountersfrom(n: Int, start: Int, mark: Int, blocking: Bool, end: Int, slider: Int)
+    func drawcountersfrom(_ n: Int, start: Int, mark: Int, blocking: Bool, end: Int, slider: Int)
     {
         
         var minimum = min(start,end)
@@ -186,9 +186,9 @@ class hundredsdescriptor: UILabel
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.font = UIFont(name: "Chalkboard SE", size: self.frame.height/2)
-        self.textAlignment = .Center
+        self.textAlignment = .center
     }
     
 }

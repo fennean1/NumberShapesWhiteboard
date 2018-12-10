@@ -58,20 +58,20 @@ class MultiplicationViewController: UIViewController
     // Two dimensional number line handles pretty much everything that goes on.
     var TwoDGrid = twodimensionalnumberline()
     
-    @IBAction func helpbuttonclicked(sender: UIButton)
+    @IBAction func helpbuttonclicked(_ sender: UIButton)
     {
       
         let help = helpmodel.gridHelp
         
         var i = 0
         
-        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: "Done", style: .Default , handler: nil)
+        let vc = UIAlertController(title: "\n\n\n", message: help[i].0, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Done", style: .default , handler: nil)
         
         let instImgView = UIImageView()
         instImgView.image = help[i].1
         
-        let nextAction = UIAlertAction(title: "Next", style: .Default , handler: {(alertaction) -> Void in
+        let nextAction = UIAlertAction(title: "Next", style: .default , handler: {(alertaction) -> Void in
             
             i = i+1
             
@@ -80,13 +80,13 @@ class MultiplicationViewController: UIViewController
             vc.message =  help[j].0
             instImgView.image = help[j].1
             
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         })
         
         vc.addAction(okAction)
         vc.addAction(nextAction)
         
-        self.presentViewController(vc, animated: true, completion:{(alertaction) -> Void in
+        self.present(vc, animated: true, completion:{(alertaction) -> Void in
             
             instImgView.frame = CGRect(x: 0, y: 0, width: vc.view.frame.height/3, height: vc.view.frame.height/3)
             
@@ -98,7 +98,7 @@ class MultiplicationViewController: UIViewController
     }
     
     
-    @IBAction func equalsbuttonclicked(sender: UIButton)
+    @IBAction func equalsbuttonclicked(_ sender: UIButton)
     {
         
         // If I'm already operating I just want to go back to multiplying
@@ -106,12 +106,12 @@ class MultiplicationViewController: UIViewController
         {
             multiplying = true
             operating = false
-            operatorbutton.hidden = false
-            multlbl.hidden = true
-            multiplicationbtn.hidden = true
-            propLbl.hidden = true
-            ProportionBtn.hidden = true
-            sender.hidden = false
+            operatorbutton.isHidden = false
+            multlbl.isHidden = true
+            multiplicationbtn.isHidden = true
+            propLbl.isHidden = true
+            ProportionBtn.isHidden = true
+            sender.isHidden = false
         }
         else if !operating
         {
@@ -123,12 +123,12 @@ class MultiplicationViewController: UIViewController
             multiplying = false
             operating = false
             propping = false
-            multlbl.hidden = false
-            multiplicationbtn.hidden = false
-            operatorbutton.hidden = true
-            sender.hidden = true
-            ProportionBtn.hidden = false
-            propLbl.hidden = false
+            multlbl.isHidden = false
+            multiplicationbtn.isHidden = false
+            operatorbutton.isHidden = true
+            sender.isHidden = true
+            ProportionBtn.isHidden = false
+            propLbl.isHidden = false
         }
 
         xm = -1
@@ -142,10 +142,10 @@ class MultiplicationViewController: UIViewController
         
     }
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         
-        view.opaque = true
+        view.isOpaque = true
         let lx = view.frame.width/2-3/4*view.frame.height/2
         let ly = 1/8*view.frame.height
         let w = 3/4*view.frame.height
@@ -164,18 +164,18 @@ class MultiplicationViewController: UIViewController
         
     }
     
-    @IBAction func blockorballbuttonclicked(sender: UIButton)
+    @IBAction func blockorballbuttonclicked(_ sender: UIButton)
     {
         
         blocking = !blocking
         
         if blocking
         {
-            sender.setTitle("Balls", forState: .Normal)
+            sender.setTitle("Balls", for: UIControlState())
         }
         else if !blocking
         {
-            sender.setTitle("Blocks", forState: .Normal)
+            sender.setTitle("Blocks", for: UIControlState())
         }
         
         TwoDGrid.BallGrid.drawallballs(n, x: x, y: y, xm: xm, ym: ym,propping: propping, blocking: blocking)
@@ -183,7 +183,7 @@ class MultiplicationViewController: UIViewController
     }
     
     
-    @IBAction func multiplicationbuttonclicked(sender: UIButton)
+    @IBAction func multiplicationbuttonclicked(_ sender: UIButton)
     {
         
         
@@ -192,12 +192,12 @@ class MultiplicationViewController: UIViewController
         // wasn't multiplying when clicked
         if !multiplying
         {
-            sender.hidden = true
-            multlbl.hidden = true
-            ProportionBtn.hidden = true
-            propLbl.hidden = true
-            operatorbutton.hidden = false
-            equalsbtn.hidden = false
+            sender.isHidden = true
+            multlbl.isHidden = true
+            ProportionBtn.isHidden = true
+            propLbl.isHidden = true
+            operatorbutton.isHidden = false
+            equalsbtn.isHidden = false
             
         }
         // was already multiplying
@@ -213,7 +213,7 @@ class MultiplicationViewController: UIViewController
     }
     
     
-    @IBAction func proportionbuttonclicked(sender: UIButton!)
+    @IBAction func proportionbuttonclicked(_ sender: UIButton!)
     {
         
         operating = false
@@ -222,21 +222,21 @@ class MultiplicationViewController: UIViewController
         if propping == false
         {
             xm = x
-            sender.hidden = true
-            equalsbtn.hidden = false
-            propLbl.hidden = true
-            multlbl.hidden = true
-            multiplicationbtn.hidden = true
+            sender.isHidden = true
+            equalsbtn.isHidden = false
+            propLbl.isHidden = true
+            multlbl.isHidden = true
+            multiplicationbtn.isHidden = true
         }
         else if propping == true
         {
             x = xm
             
             xm = -1
-            sender.setImage(UIImage(named: "Transparent Glass Circle"), forState: .Normal)
-            propLbl.hidden = false
-            multiplicationbtn.hidden = false
-            multlbl.hidden = false
+            sender.setImage(UIImage(named: "Transparent Glass Circle"), for: UIControlState())
+            propLbl.isHidden = false
+            multiplicationbtn.isHidden = false
+            multlbl.isHidden = false
         }
       
         propping = !propping
@@ -247,7 +247,7 @@ class MultiplicationViewController: UIViewController
     
     
     
-    @IBAction func horizontaloperatorclicked(sender: UIButton)
+    @IBAction func horizontaloperatorclicked(_ sender: UIButton)
     {
 
         propping = false
@@ -255,7 +255,7 @@ class MultiplicationViewController: UIViewController
         if operating == false
         {
               xm = x
-              sender.hidden = true
+              sender.isHidden = true
             
         }
         else if operating == true
@@ -272,7 +272,7 @@ class MultiplicationViewController: UIViewController
     }
     
     
-    @IBAction func HandlePinch(sender: pinchhandler)
+    @IBAction func HandlePinch(_ sender: pinchhandler)
     {
         
         pinched = true
@@ -291,7 +291,7 @@ class MultiplicationViewController: UIViewController
 
     
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
     {
 
         if pinched == true
@@ -303,32 +303,32 @@ class MultiplicationViewController: UIViewController
 
     
     
-    func HandleSwipes(sender: UISwipeGestureRecognizer)
+    func HandleSwipes(_ sender: UISwipeGestureRecognizer)
     {
         
         // Swipe incrementing logic
-        if sender.direction == .Up
+        if sender.direction == .up
         {
             if y != n
             {
                 y += 1
             }
         }
-        else if sender.direction == .Down
+        else if sender.direction == .down
         {
             if y != 0
             {
                 y -= 1
             }
         }
-        else if sender.direction == .Right
+        else if sender.direction == .right
         {
             if x != n
             {
                 x += 1
             }
         }
-        else if sender.direction == .Left
+        else if sender.direction == .left
         {
             if x != 0
             {
@@ -385,16 +385,20 @@ class MultiplicationViewController: UIViewController
     
     override func viewDidLoad()
     {
-        
+        let backGround = UIImageView()
+        backGround.image = UIImage(named: "CloudsBackground")
+        backGround.frame.styleFillContainer(container: self.view.frame)
+        view.addSubview(backGround)
+        view.sendSubview(toBack: backGround)
         
         // Configure descriptor
-        Descriptor.textAlignment = NSTextAlignment.Center
+        Descriptor.textAlignment = NSTextAlignment.center
         Descriptor.adjustsFontSizeToFitWidth = true
         
         
         // These are hidden at startup
-        operatorbutton.hidden = true
-        equalsbtn.hidden = true
+        operatorbutton.isHidden = true
+        equalsbtn.isHidden = true
        
         // Setting up swipe gestures
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(MultiplicationViewController.HandleSwipes(_:)))
@@ -407,10 +411,10 @@ class MultiplicationViewController: UIViewController
         view.addGestureRecognizer(downSwipe)
         view.addGestureRecognizer(upSwipe)
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
-        downSwipe.direction = .Down
-        upSwipe.direction = .Up
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        downSwipe.direction = .down
+        upSwipe.direction = .up
 
         
         super.viewDidLoad()

@@ -12,10 +12,10 @@ import UIKit
 
 class fractionofathingdescriptor: UIView
 {
-    var FractionDescriptor = fractiondescriptor!(nil)
+    var FractionDescriptor = fractiondescriptor()
     let ThingThatFractionIsOf = UILabel()
     
-    func write(N: Int, D: Int,Img: String)
+    func write(_ N: Int, D: Int,Img: String)
     {
         
         let length = CGFloat(Img.getstringprefix(false).characters.count + 3)
@@ -60,11 +60,11 @@ class fractionofathingdescriptor: UIView
         if N == 1 && D == 1
         {
             _text = "1 " + Img
-            FractionDescriptor.hidden = true
+            FractionDescriptor.isHidden = true
         }
         else
         {
-            FractionDescriptor.hidden = false
+            FractionDescriptor.isHidden = false
             _text =  "of " + Img.getstringprefix(false)
         }
 
@@ -111,7 +111,7 @@ class fractionofathingdescriptor: UIView
         
         
         ThingThatFractionIsOf.font = UIFont(name: "Chalkboard SE", size: frame.height/3)
-        ThingThatFractionIsOf.textAlignment = .Center
+        ThingThatFractionIsOf.textAlignment = .center
         //ThingThatFractionIsOf.backgroundColor = UIColor.redColor()
         //FractionDescriptor.backgroundColor = UIColor.blueColor()
         
@@ -140,15 +140,15 @@ class fractiondescriptor: UIView
     var denominator = UILabel()
     var divider = UIImageView()
     
-    func printFrac(num: Int, den: Int)
+    func printFrac(_ num: Int, den: Int)
     {
         // _width just to have a different name.
         let _width = self.frame.width
         
         // Default setup
-        numerator.textAlignment = NSTextAlignment.Center
+        numerator.textAlignment = NSTextAlignment.center
         numerator.font = UIFont(name: "ChalkBoard SE", size: 1/2*_width)
-        denominator.textAlignment = NSTextAlignment.Center
+        denominator.textAlignment = NSTextAlignment.center
         denominator.font = UIFont(name: "ChalkBoard SE", size: 1/2*_width)
         numerator.frame = CGRect(x: 0, y: 0, width: _width, height: _width)
         denominator.frame = CGRect(x: 0, y: _width, width: _width, height: _width)
@@ -161,12 +161,12 @@ class fractiondescriptor: UIView
             numerator.frame = CGRect(x: 0, y: _width/2, width: _width, height: _width)
             numerator.text = "\(num)"
             denominator.text = nil
-            divider.hidden = true
+            divider.isHidden = true
         }
             // Otherwise inheret from defaults
         else
         {
-            divider.hidden = false
+            divider.isHidden = false
             numerator.text = "\(num)"
             denominator.text = "\(den)"
         }

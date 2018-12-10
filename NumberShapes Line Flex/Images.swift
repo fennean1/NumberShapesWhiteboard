@@ -31,8 +31,8 @@ let SliderThumb = UIImage(named: "SeriousGlassThumb")
 let EqualsButton = UIImage(named: "=")
 let PropButton = UIImage(named: "PropButton")
 let MultiplicationButton = UIImage(named: "MultiButton")
-let UpSideDownSharpMark =  UIImage(CGImage: SharpMarker.CGImage!, scale: CGFloat(1.0), orientation: .DownMirrored)
-let UpSideDownSharpMarkSelected = UIImage(CGImage: SharpMarkerSelected!.CGImage!, scale: CGFloat(1.0), orientation: .DownMirrored)
+let UpSideDownSharpMark =  UIImage(cgImage: SharpMarker.cgImage!, scale: CGFloat(1.0), orientation: .downMirrored)
+let UpSideDownSharpMarkSelected = UIImage(cgImage: SharpMarkerSelected!.cgImage!, scale: CGFloat(1.0), orientation: .downMirrored)
 let FracBall = UIImage(named: "Sphere")
 let Orange = UIImage(named: "Orange")
 let Record = UIImage(named: "Record")
@@ -42,7 +42,7 @@ let Dollar = UIImage(named: "Dollar")
 
 extension String
 {
-    func getstringprefix(Up: Bool) -> String
+    func getstringprefix(_ Up: Bool) -> String
     {
         let S = Array(self.characters)
         

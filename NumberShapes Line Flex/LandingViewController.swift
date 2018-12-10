@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 
-class LandingViewController: UIViewController
+class LandingViewController: UIViewController,  SKStoreProductViewControllerDelegate
 {
     @IBOutlet weak var ShowIntegersBtn: circleButton!
 
@@ -19,8 +20,6 @@ class LandingViewController: UIViewController
     @IBOutlet weak var ShowFractionsBtn: circleButton!
     
     @IBOutlet weak var ShowMultiplicationBtn: circleButton!
- 
-    
     
     @IBOutlet weak var ShowThousandsButton: circleButton!
     
@@ -28,7 +27,25 @@ class LandingViewController: UIViewController
     @IBOutlet weak var ShowHundredsBtn: circleButton!
     
     @IBOutlet weak var LogoBtn: UIButton!
-
+    
+    @IBAction func moreApps(_ sender: AnyObject) {
+        let vc: SKStoreProductViewController = SKStoreProductViewController()
+        let params = [
+            SKStoreProductParameterITunesItemIdentifier:1085400375,
+            SKStoreProductParameterAffiliateToken:"1010lqRf"
+    
+        ] as [String : Any]
+        vc.delegate = self
+        vc.loadProduct(withParameters: params, completionBlock: nil)
+        self.present(vc, animated: true) { () -> Void in }
+    }
+    
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
     override func viewDidLayoutSubviews()
     {
@@ -69,6 +86,11 @@ class LandingViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        let backGround = UIImageView()
+        backGround.image = UIImage(named: "CloudsBackground")
+        backGround.frame.styleFillContainer(container: self.view.frame)
+        view.addSubview(backGround)
+        view.sendSubview(toBack: backGround)
     }
     
     

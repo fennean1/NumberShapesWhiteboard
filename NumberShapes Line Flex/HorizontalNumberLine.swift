@@ -16,7 +16,7 @@ class horizontalnumberline: UIView
     var hticks = horizontalnumberlinetickmarks()
     var hlbls = horizontalnumberlinelabels()
     
-    func drawme(n: Int)
+    func drawme(_ n: Int)
     {
         // Align to incoming frame
         let w = self.frame.width
@@ -49,7 +49,7 @@ class horizontalnumberline: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
         self.frame = frame
     }
@@ -61,7 +61,7 @@ class horizontalnumberlinelabels: UIView
 {
     
     // This draws the labels on the view.
-    func drawme(rect: CGRect, n: Int)
+    func drawme(_ rect: CGRect, n: Int)
     {
         
         // Add this to the arguement.  We want to be able to control how often the lables occur
@@ -95,7 +95,7 @@ class horizontalnumberlinelabels: UIView
             lbl.frame = CGRect(x: -startx + CGFloat(index)*dx, y: 0, width: w, height: h)
             lbl.text = "\(index*every)"
             print(lbl.text)
-            lbl.textAlignment = NSTextAlignment.Center
+            lbl.textAlignment = NSTextAlignment.center
             lbl.adjustsFontSizeToFitWidth = true
             lbl.font = UIFont(name: "ChalkBoard SE", size: h*3/5)
             //lbl.backgroundColor = UIColor.redColor()
@@ -121,7 +121,7 @@ class horizontalnumberlinetickmarks: UIView
     var tinyevery = 1
     
     // Called by "SetNeedsDisplay"
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         // Find out how often to place labels as a function of n
         let lblevery = labelsevery(n)
@@ -151,9 +151,9 @@ class horizontalnumberlinetickmarks: UIView
         
         // Getting context and set it up
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, linewidth)
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetLineCap(context, CGLineCap.Round)
+        context?.setLineWidth(linewidth)
+        context?.setStrokeColor(UIColor.black.cgColor)
+        context?.setLineCap(CGLineCap.round)
         
         
         for index in 0...numberofticks
@@ -175,15 +175,15 @@ class horizontalnumberlinetickmarks: UIView
                 
             }
 
-                CGContextMoveToPoint(context, contx, conty)
-                CGContextAddLineToPoint(context, endx, endy)
+                context?.move(to: CGPoint(x: contx, y: conty))
+                context?.addLine(to: CGPoint(x: endx, y: endy))
 
         }
         
         // Draw the line straight through
-        CGContextMoveToPoint(context, 0, h/2)
-        CGContextAddLineToPoint(context, dx*CGFloat(n), h/2)
-        CGContextStrokePath(context)
+        context?.move(to: CGPoint(x: 0, y: h/2))
+        context?.addLine(to: CGPoint(x: dx*CGFloat(n), y: h/2))
+        context?.strokePath()
         
     }
     
@@ -198,7 +198,7 @@ class horizontalnumberlinetickmarks: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
     }
     
@@ -206,7 +206,7 @@ class horizontalnumberlinetickmarks: UIView
 
 
 // Counts how often a label should be drawn as a function of it's length
-func labelsevery(n: Int) -> Int
+func labelsevery(_ n: Int) -> Int
 {
     
     if 20 < n && n <= 40
@@ -237,7 +237,7 @@ func labelsevery(n: Int) -> Int
 }
 
 
-func ticksevery(n: Int) -> Int
+func ticksevery(_ n: Int) -> Int
 {
     
     if 20 < n && n <= 40
@@ -268,7 +268,7 @@ func ticksevery(n: Int) -> Int
 
 class pinch: UIPinchGestureRecognizer
 {
-    func getnewtop(scale: Float,floor: Float,currentmax: Int) -> Int
+    func getnewtop(_ scale: Float,floor: Float,currentmax: Int) -> Int
     {
         if scale*Float(currentmax) > floor
         {

@@ -14,7 +14,7 @@ class fractionball: UIView
     var Cut = true
     var WhatToCut = UIImageView()
     
-    func writefrac(n: Int, d: Int)
+    func writefrac(_ n: Int, d: Int)
     {
         
         let fn = Double(n)
@@ -36,7 +36,7 @@ class fractionball: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.addSubview(WhatToCut)
         self.addSubview(Cutter)
         self.addSubview(Pie)
@@ -72,65 +72,58 @@ class ProgressPieIcon: UIView
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
     }
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         
-        self.backgroundColor = UIColor.clearColor()
-        let color = UIColor.whiteColor().CGColor
+        self.backgroundColor = UIColor.clear
+        let color = UIColor.blue.cgColor
         let lineWidth : CGFloat = 0
         
         // Calculate box with insets
         let margin: CGFloat = lineWidth
-        let box0 = CGRectInset(self.bounds, margin, margin)
+        let box0 = self.bounds.insetBy(dx: margin, dy: margin)
         let side : CGFloat = min(box0.width, box0.height)
-        let box = CGRectMake((self.bounds.width-side)/2, (self.bounds.height-side)/2,side,side)
+        let box = CGRect(x: (self.bounds.width-side)/2, y: (self.bounds.height-side)/2,width: side,height: side)
         
         
         let ctx = UIGraphicsGetCurrentContext()
         
         // Draw outline
-        CGContextBeginPath(ctx)
-        CGContextSetStrokeColorWithColor(ctx, color)
-        CGContextSetLineWidth(ctx, lineWidth)
-        CGContextAddEllipseInRect(ctx, box)
-        CGContextClosePath(ctx)
-        CGContextStrokePath(ctx)
+        ctx?.beginPath()
+        ctx?.setStrokeColor(color)
+        ctx?.setLineWidth(lineWidth)
+        ctx?.addEllipse(in: box)
+        ctx?.closePath()
+        ctx?.strokePath()
         
         // Draw arc
-        let delta : CGFloat = -CGFloat(M_PI_2)
+        let delta : CGFloat = CGFloat(-Double.pi/2)
         let radius : CGFloat = min(box.width, box.height)/2.0
         
-        func prog_to_rad(p: Double) -> CGFloat
+        func prog_to_rad(_ p: Double) -> CGFloat
         {
-            let rad = CGFloat(p * 2 * M_PI)
+            let rad = CGFloat(p * 2 * Double.pi)
             return rad + delta
         }
         
-        func draw_arc(s: CGFloat, e: CGFloat, color: CGColor) {
-            CGContextBeginPath(ctx)
-            CGContextMoveToPoint(ctx, box.midX, box.midY)
-            CGContextSetFillColorWithColor(ctx, color)
+        func draw_arc(_ s: CGFloat, e: CGFloat, color: CGColor) {
             
-            CGContextAddArc(
-                ctx,
-                box.midX,
-                box.midY,
-                radius-lineWidth/2,
-                s,
-                e,
-                0)
+            ctx?.beginPath()
+            ctx?.move(to: CGPoint(x: box.midX, y: box.midY))
+            ctx?.setFillColor(UIColor.white.cgColor)
+            ctx?.addArc(center: center, radius: radius, startAngle: CGFloat(-Double.pi/2), endAngle: e, clockwise: false)
+            ctx?.closePath()
+            ctx?.fillPath()
             
-            CGContextClosePath(ctx)
-            CGContextFillPath(ctx)
         }
-        
+ 
         if progress > 0 {
             let s = prog_to_rad(0)
             let e = prog_to_rad(min(1.0, progress))
-            draw_arc(s, e: e, color: UIColor.whiteColor().CGColor)
+            draw_arc(s, e: e, color: UIColor.white.cgColor)
         }
     }
 }
@@ -139,7 +132,7 @@ class ProgressPieIcon: UIView
 class slicingClass: UIView
 {
     
-    let π = M_PI
+    let π = Double.pi
     var pieces = 1
     
     var Radius: CGFloat
@@ -154,12 +147,12 @@ class slicingClass: UIView
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
     }
     
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         
         
@@ -177,19 +170,19 @@ class slicingClass: UIView
                 let x = Double(Radius)+Double(Radius)*Double(cos(Angle))
                 let y = Double(Radius)+Double(Radius)*Double(sin(Angle))
                 
-                CGContextMoveToPoint(context, Radius, Radius)
+                context?.move(to: CGPoint(x: Radius, y: Radius))
                 
-                let End = CGPointMake(CGFloat(x),CGFloat(y))
+                let End = CGPoint(x: CGFloat(x),y: CGFloat(y))
                 
-                CGContextAddLineToPoint(context, End.x, End.y)
+                context?.addLine(to: CGPoint(x: End.x, y: End.y))
                 
-                CGContextSetLineCap(context, CGLineCap.Round)
+                context?.setLineCap(CGLineCap.round)
                 
-                CGContextSetRGBStrokeColor(context,1,1,1,1)
+                context?.setStrokeColor(red: 1,green: 1,blue: 1,alpha: 1)
                 
-                CGContextSetLineWidth(context, 10/sqrt(CGFloat(pieces)))
+                context?.setLineWidth(10/sqrt(CGFloat(pieces)))
                 
-                CGContextStrokePath(context)
+                context?.strokePath()
                 
                 
             }

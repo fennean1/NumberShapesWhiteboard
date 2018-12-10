@@ -15,39 +15,39 @@ class operateTwiceButton: UIButton
 {
     
     // This button is sometimes set to hidden
-    func alignToState(State: String)
+    func alignToState(_ State: String)
     {
         switch State
         {
         case "WithShapesNotOperating":
             
-            self.hidden = true
-            self.enabled = false
+            self.isHidden = true
+            self.isEnabled = false
             
         case "WithNumbersNotOperating":
             
-            self.hidden = true
-            self.enabled = false
+            self.isHidden = true
+            self.isEnabled = false
 
         case "WithShapesOperatingOnce":
             
-            self.hidden = true
-            self.enabled = false
+            self.isHidden = true
+            self.isEnabled = false
             
         case "WithNumbersOperatingOnce":
             
-            self.hidden = false
-            self.enabled = true
+            self.isHidden = false
+            self.isEnabled = true
             
         case "OperatingTwice":
             
-            self.hidden = true
-            self.enabled = false
+            self.isHidden = true
+            self.isEnabled = false
             
         default:
             
-            self.hidden = true
-            self.enabled = false
+            self.isHidden = true
+            self.isEnabled = false
             
         }
     }
@@ -59,35 +59,35 @@ class operateOnceButton: UIButton
 {
     
     // This button is never set to hidden
-    func alignToState(State: String)
+    func alignToState(_ State: String)
     {
         switch State
         {
         case "WithShapesNotOperating":
             
-            self.setImage(UIImage(named: "Plus_Minus"), forState: .Normal)
+            self.setImage(UIImage(named: "Plus_Minus"), for: UIControlState())
             
         case "WithNumbersNotOperating":
             
-            self.setImage(UIImage(named: "Plus_Minus"), forState: .Normal)
+            self.setImage(UIImage(named: "Plus_Minus"), for: UIControlState())
 
         case "WithShapesOperatingOnce":
         
-            self.setImage(UIImage(named: "="), forState: .Normal)
+            self.setImage(UIImage(named: "="), for: UIControlState())
             
         case "WithNumbersOperatingOnce":
             
-            self.setImage(UIImage(named: "="), forState: .Normal)
+            self.setImage(UIImage(named: "="), for: UIControlState())
             
         case "OperatingTwice":
             
-            self.setImage(UIImage(named: "="), forState: .Normal)
+            self.setImage(UIImage(named: "="), for: UIControlState())
             
         default:
             
-            self.enabled = true
-            self.hidden = false
-            self.setImage(UIImage(named: "Plus_Minus"), forState: .Normal)
+            self.isEnabled = true
+            self.isHidden = false
+            self.setImage(UIImage(named: "Plus_Minus"), for: UIControlState())
             
         }
     }
@@ -99,7 +99,7 @@ class operateOnceButton: UIButton
 class descriptor: UILabel
 {
     // Determines the string that the descriptor must display
-    func DescriptorText(Mark1: Int, Mark2: Int, Slider: Int) -> String
+    func DescriptorText(_ Mark1: Int, Mark2: Int, Slider: Int) -> String
     {
         
         var OperatingOnce = false
@@ -172,39 +172,39 @@ class descriptor: UILabel
     }
 
     
-    func alignToState(State: String)
+    func alignToState(_ State: String)
     {
         switch State
         {
         case "WithShapesNotOperating":
             
-            self.hidden = true
-            self.enabled = false
+            self.isHidden = true
+            self.isEnabled = false
             
         case "WithNumbersNotOperating":
             
-            self.hidden = false
-            self.enabled = true
+            self.isHidden = false
+            self.isEnabled = true
         
         case "WithShapesOperatingOnce":
             
-            self.hidden = true
-            self.enabled = false
+            self.isHidden = true
+            self.isEnabled = false
             
         case "WithNumbersOperatingOnce":
             
-            self.hidden = false
-            self.enabled = true
+            self.isHidden = false
+            self.isEnabled = true
             
         case "OperatingTwice":
             
-            self.hidden = false
-            self.enabled = true
+            self.isHidden = false
+            self.isEnabled = true
         
         default:
             
-            self.hidden = false
-            self.enabled = true
+            self.isHidden = false
+            self.isEnabled = true
             
         }
     }
@@ -215,44 +215,44 @@ class shapebutton: UIButton
 {
     
     // This button is never set to hidden
-    func alignToState(State: String)
+    func alignToState(_ State: String)
     {
         switch State
         {
         case "WithShapesNotOperating":
             
-            self.enabled = true
-            self.hidden = false
-            self.setImage(UIImage(named: "ShowWithNumbersButton"), forState: .Normal)
+            self.isEnabled = true
+            self.isHidden = false
+            self.setImage(UIImage(named: "ShowWithNumbersButton"), for: UIControlState())
             
         case "WithNumbersNotOperating":
             
-            self.enabled = true
-            self.hidden = false
-            self.setImage(UIImage(named: "ShowWithShapesButton"), forState: .Normal)
+            self.isEnabled = true
+            self.isHidden = false
+            self.setImage(UIImage(named: "ShowWithShapesButton"), for: UIControlState())
             
         case "WithShapesOperatingOnce":
             
-            self.enabled = true
-            self.hidden = false
-            self.setImage(UIImage(named: "ShowWithNumbersButton"), forState: .Normal)
+            self.isEnabled = true
+            self.isHidden = false
+            self.setImage(UIImage(named: "ShowWithNumbersButton"), for: UIControlState())
             
         case "WithNumbersOperatingOnce":
             
-            self.enabled = true
-            self.hidden = false
-            self.setImage(UIImage(named: "ShowWithShapesButton"), forState: .Normal)
+            self.isEnabled = true
+            self.isHidden = false
+            self.setImage(UIImage(named: "ShowWithShapesButton"), for: UIControlState())
             
         case "OperatingTwice":
             
-            self.enabled = false
-            self.hidden = true
+            self.isEnabled = false
+            self.isHidden = true
             
         default:
             
-            self.enabled = true
-            self.hidden = false
-            self.setImage(UIImage(named: "ShowWithShapes"), forState: .Normal)
+            self.isEnabled = true
+            self.isHidden = false
+            self.setImage(UIImage(named: "ShowWithShapes"), for: UIControlState())
             
         }
     }
@@ -266,7 +266,7 @@ class NumberShape: UIView
 }
 
 // Turns a number into a three element array of hundreds, tens and ones
-func FindPlaceValues(number: Int) -> [Int]
+func FindPlaceValues(_ number: Int) -> [Int]
 {
     var PlaceValuesArray: [Int] = []
 
@@ -299,7 +299,7 @@ func FindPlaceValues(number: Int) -> [Int]
 }
 
 
-func CreateNumberShape(number: Int, dim: CGFloat) -> NumberShape
+func CreateNumberShape(_ number: Int, dim: CGFloat) -> NumberShape
 {
     
         // Array that stores the place values (100,50,5) etc.
@@ -337,7 +337,7 @@ class shapeDescriptor: UIView
 
     
     // Draws the views and assigns the images
-    func DrawMyViews(M1: Int, S: Int, State: String)
+    func DrawMyViews(_ M1: Int, S: Int, State: String)
     {
         // Remove current views
         for view in self.subviews
@@ -395,33 +395,33 @@ class shapeDescriptor: UIView
         }
     }
     
-    func alignToState(State: String)
+    func alignToState(_ State: String)
     {
         switch State
         {
         case "WithShapesNotOperating":
             
-            self.hidden = false
+            self.isHidden = false
             
         case "WithNumbersNotOperating":
             
-            self.hidden = true
+            self.isHidden = true
             
         case "WithShapesOperatingOnce":
             
-            self.hidden = false
+            self.isHidden = false
             
         case "WithNumbersOperatingOnce":
             
-            self.hidden = true
+            self.isHidden = true
             
         case "OperatingTwice":
             
-            self.hidden = true
+            self.isHidden = true
             
         default:
             
-           self.hidden = true
+           self.isHidden = true
             
         }
     }

@@ -21,7 +21,7 @@ class twodimensionalnumberline: UIView
     var BallGrid = ballgrid()
 
     
-    func drawme(rect: CGRect,n: Int)
+    func drawme(_ rect: CGRect,n: Int)
     {
         // Align to incoming frame
         self.frame = rect
@@ -70,7 +70,7 @@ class twodimensionalnumberline: UIView
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
         
         
@@ -79,7 +79,7 @@ class twodimensionalnumberline: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
   
         

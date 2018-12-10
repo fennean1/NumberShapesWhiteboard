@@ -110,11 +110,11 @@ class blockline: UIView
 }
 
 
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         
         self.layer.sublayers?.removeAll()
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
         refreshtheblocks()
 
@@ -125,14 +125,14 @@ class blockline: UIView
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
     }
     
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.clearsContextBeforeDrawing = true
 
         

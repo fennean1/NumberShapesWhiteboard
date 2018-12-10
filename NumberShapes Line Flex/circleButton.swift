@@ -11,7 +11,7 @@ class circleButton: UIButton
     var btnLabel = UILabel()
     
     
-    func setUpLabel(title: String)
+    func setUpLabel(_ title: String)
     {
         // Setting up label frame dimensions
         let s = self.frame.height
@@ -25,7 +25,7 @@ class circleButton: UIButton
         
         self.addSubview(btnLabel)
         btnLabel.frame = lblframe
-        btnLabel.textAlignment = NSTextAlignment.Center
+        btnLabel.textAlignment = NSTextAlignment.center
         btnLabel.font = UIFont(name: "ChalkBoard SE", size: fontsize)
         btnLabel.text = title
     }
@@ -36,11 +36,11 @@ class circleButton: UIButton
     {
         super.init(coder: aDecoder)!
         
-        self.setImage(UIImage(named: "Transparent Glass Circle"), forState: .Normal)
+        self.setImage(UIImage(named: "Transparent Glass Circle"), for: UIControlState())
         
-        self.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Fill
-        self.contentVerticalAlignment = UIControlContentVerticalAlignment.Fill
-        self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        self.contentHorizontalAlignment = UIControlContentHorizontalAlignment.fill
+        self.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
+        self.imageView?.contentMode = UIViewContentMode.scaleAspectFit
 
     }
     
@@ -48,11 +48,11 @@ class circleButton: UIButton
     {
         super.init(frame: frame)
         
-        self.setImage(UIImage(named: "Transparent Glass Circle"), forState: .Normal)
+        self.setImage(UIImage(named: "Transparent Glass Circle"), for: UIControlState())
         
-        self.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Fill
-        self.contentVerticalAlignment = UIControlContentVerticalAlignment.Fill
-        self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        self.contentHorizontalAlignment = UIControlContentHorizontalAlignment.fill
+        self.contentVerticalAlignment = UIControlContentVerticalAlignment.fill
+        self.imageView?.contentMode = UIViewContentMode.scaleAspectFit
 
         
     }
